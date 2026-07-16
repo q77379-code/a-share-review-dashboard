@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A股短线资讯看板 - 2026-07-16</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #6b7280;
+      --line: #dde3eb;
+      --red: #b42318;
+      --amber: #f59e0b;
+      --green: #047857;
+      --blue: #2563eb;
+      --chip: #eef2f7;
+      --shadow: 0 10px 24px rgba(17, 24, 39, .07);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    header {
+      padding: 22px 28px 18px;
+      background: #111827;
+      color: #fff;
+      border-bottom: 4px solid #d92d20;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      color: #d1d5db;
+      font-size: 13px;
+    }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto auto auto;
+      gap: 10px;
+      padding: 12px 28px;
+      background: rgba(246, 247, 249, .96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    input, select, button {
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 14px;
+      padding: 0 12px;
+    }
+    button {
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .summary-bar {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      padding: 14px 28px 0;
+    }
+    .summary-item {
+      min-height: 58px;
+      padding: 10px 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .summary-item b {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    .summary-item span {
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 800;
+    }
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px 28px 28px;
+    }
+    section {
+      min-width: 0;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin: 0 0 12px;
+    }
+    h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .count {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .card {
+      margin-bottom: 10px;
+      padding: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blue);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .card.hot { border-left-color: var(--red); }
+    .card.high { border-left-color: var(--amber); }
+    .card.mid { border-left-color: var(--blue); }
+    .topline {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .rank {
+      width: 28px;
+      height: 24px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 5px;
+      background: #111827;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .tag, .impact, .line, .sentiment {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--chip);
+      font-size: 12px;
+      color: #374151;
+    }
+    .impact.hot { color: var(--red); background: #fee4e2; }
+    .impact.high { color: var(--amber); background: #fef3c7; }
+    .impact.mid { color: var(--blue); background: #dbeafe; }
+    .sentiment.good { color: #047857; background: #d1fae5; }
+    .sentiment.bad { color: #b42318; background: #fee4e2; }
+    .sentiment.unknown { color: #475467; background: #eef2f7; }
+    .focus-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #fff1b8;
+      color: #92400e;
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid #f5c542;
+    }
+    .trade-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 6px;
+      margin: 10px 0 12px;
+      padding: 10px 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      background: #f9fafb;
+    }
+    .trade-cell {
+      min-width: 0;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .trade-cell b {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+    .trade-cell span {
+      display: block;
+      color: var(--ink);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+    h3 {
+      margin: 2px 0 10px;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+    p {
+      margin: 8px 0;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .label {
+      color: var(--muted);
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 800;
+      margin-right: 4px;
+    }
+    a {
+      color: #175cd3;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    a:hover { text-decoration: underline; }
+    .risk {
+      color: #475467;
+    }
+    .detail-line {
+      max-width: 96%;
+    }
+    .source-line {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: right;
+    }
+    .source-line .label {
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 0;
+    }
+    .source-line a {
+      font-size: 12px;
+    }
+    .day-offset {
+      color: var(--red);
+      font-weight: 800;
+      margin-left: 3px;
+    }
+    footer {
+      padding: 0 28px 26px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    @media (max-width: 980px) {
+      main { grid-template-columns: 1fr; }
+      .toolbar { grid-template-columns: 1fr; }
+      .summary-bar { grid-template-columns: 1fr 1fr; }
+      .trade-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      header, .toolbar, .summary-bar, main, footer { padding-left: 16px; padding-right: 16px; }
+    }
+    @media print {
+      .toolbar { display: none; }
+      body { background: #fff; }
+      main { grid-template-columns: 1fr 1fr; padding: 12px; }
+      .card { box-shadow: none; break-inside: avoid; }
+      a { color: #111827; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>A股短线资讯看板</h1>
+    <div class="meta">
+      <span>生成时间：2026-07-16 10:00:32 CST</span>
+      <span>口径：国际 10 条 / 国内 10 条</span>
+      <span>筛选：优先官方、交易所、上市公司公告、权威媒体；剔除股吧小道消息</span>
+      <span>用途：短线情绪与板块映射，不构成投资建议</span>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <input id="q" placeholder="搜索：政策、AI、存储、油价、公司名..." />
+    <select id="level">
+      <option value="">全部重要度</option>
+      <option value="hot">极高</option>
+      <option value="high">高</option>
+      <option value="mid">中</option>
+    </select>
+    <select id="sortBy">
+      <option value="time">按发布时间排序</option>
+      <option value="level">按重要程度排序</option>
+      <option value="sentiment">按利空利好排序</option>
+    </select>
+    <button id="print">打印/另存 PDF</button>
+  </div>
+
+  <div class="summary-bar">
+    <div class="summary-item"><b>利好</b><span id="goodCount">0</span></div>
+    <div class="summary-item"><b>利空</b><span id="badCount">0</span></div>
+    <div class="summary-item"><b>未知</b><span id="unknownCount">0</span></div>
+    <div class="summary-item"><b>高关注</b><span id="highAttentionCount">0</span></div>
+    <div class="summary-item"><b>高风险</b><span id="highRiskCount">0</span></div>
+  </div>
+
+  <main>
+    <section>
+      <div class="section-head">
+        <h2>国际线</h2>
+        <span class="count" id="intlCount"></span>
+      </div>
+      <div id="international"></div>
+    </section>
+    <section>
+      <div class="section-head">
+        <h2>国内线</h2>
+        <span class="count" id="domesticCount"></span>
+      </div>
+      <div id="domestic"></div>
+    </section>
+  </main>
+
+  <footer>
+    说明：本看板按“短线可能催化力度”排序，板块映射仅用于观察资金可能关注方向；真实交易需结合盘口、成交量、公告细节、监管提示和个股位置。来源链接保留原始出处，财联社内容作为资讯聚合参考，官方公告和数据优先级更高。
+  </footer>
+
+  <script>
+    const items = [
+      {
+        side: "国际", level: "hot", sentiment: "利好", sector: "利率/全球风险偏好",
+        title: "美国6月PPI环比下降0.3%，批发通胀短线降温",
+        fact: "美国劳工统计局披露，6月最终需求PPI环比下降0.3%，12个月同比上涨5.5%。",
+        map: "利率预期缓和有利于全球成长股估值，A股映射到AI硬件、半导体、创新药和港股科技情绪。",
+        related: "AI算力、半导体、创新药、港股科技ETF",
+        risk: "能源价格和地缘冲突若再度推升通胀，宽松交易可能快速反复。",
+        source: "美国劳工统计局 BLS", sourceTime: "2026-07-16 20:30 CST", url: "https://www.bls.gov/news.release/ppi.nr0.htm"
+      },
+      {
+        side: "国际", level: "hot", sentiment: "利好", sector: "AI/半导体设备",
+        title: "ASML发布Q2业绩并披露最新季度结果，AI设备需求继续验证",
+        fact: "ASML官网显示最新季度结果已于7月15日发布，市场关注EUV和先进制程扩产节奏。",
+        map: "对A股半导体设备、材料、先进封装、洁净室和国产替代链条形成情绪锚。",
+        related: "半导体设备、光刻胶、先进封装、北方华创、中微公司",
+        risk: "海外设备强势不等同于国产设备订单立即兑现，注意高位科技股分歧。",
+        source: "ASML投资者关系", sourceTime: "2026-07-15 13:00 CST", url: "https://www.asml.com/investors/financial-results"
+      },
+      {
+        side: "国际", level: "hot", sentiment: "未知", sector: "原油/航运/化工",
+        title: "EIA：美国商业原油库存降至4.097亿桶，低于五年均值约6%",
+        fact: "EIA周报显示，截至7月10日当周，美国商业原油库存减少170万桶，汽油库存减少150万桶。",
+        map: "油价韧性影响A股石油、油服、煤化工、航运和通胀链；也压制航空、部分化工下游利润。",
+        related: "油气开采、油服、煤化工、航运、中国石油",
+        risk: "库存数据周度波动大，地缘降温会削弱油气股持续性。",
+        source: "美国能源信息署 EIA", sourceTime: "2026-07-15 22:30 CST", url: "https://www.eia.gov/petroleum/supply/weekly/"
+      },
+      {
+        side: "国际", level: "high", sentiment: "未知", sector: "美联储/宏观",
+        title: "美联储褐皮书：多数地区经济小幅扩张，成本压力仍高",
+        fact: "7月15日褐皮书摘要称经济活动整体小幅扩张，就业大体平稳，部分地区消费呈分化。",
+        map: "全球流动性预期偏稳，有利于高弹性成长方向，但美国需求分化会影响出口链估值。",
+        related: "成长股、出口链、消费电子、人民币资产",
+        risk: "若美联储措辞转鹰，外资和汇率敏感资产承压。",
+        source: "Federal Reserve Beige Book", sourceTime: "2026-07-16 02:00 CST", url: "https://www.federalreserve.gov/monetarypolicy/beigebook202607-summary.htm"
+      },
+      {
+        side: "国际", level: "high", sentiment: "利好", sector: "台积电/先进制程",
+        title: "台积电6月营收披露延后至7月13日，市场聚焦Q2和AI先进制程",
+        fact: "台积电IR日历列示6月月营收已于7月13日发布，Q2业绩是全球AI硬件链关键观察点。",
+        map: "A股映射先进封装、PCB、铜连接、存储、设备材料和苹果/AI服务器供应链。",
+        related: "先进封装、PCB、铜连接、存储、沪电股份",
+        risk: "海外龙头业绩超预期可能强化拥挤交易，也可能引发兑现。",
+        source: "TSMC投资者关系", sourceTime: "2026-07-13 13:30 CST", url: "https://investor.tsmc.com/english/financial-calendar"
+      },
+      {
+        side: "国际", level: "high", sentiment: "利好", sector: "半导体景气",
+        title: "WSTS上调全球半导体市场展望，存储扩张成为核心变量",
+        fact: "WSTS页面显示，2026年全球半导体市场受存储扩张驱动，规模预期显著抬升。",
+        map: "利好A股存储、HBM、封测、材料、设备、模组及服务器链情绪。",
+        related: "存储芯片、HBM、封测、佰维存储、江波龙",
+        risk: "景气上修已被部分热门股提前计价，需区分业绩兑现和题材扩散。",
+        source: "WSTS", sourceTime: "2026-06-03 16:00 CST", url: "https://wsts.tsia.org.tw/"
+      },
+      {
+        side: "国际", level: "high", sentiment: "未知", sector: "能源/地缘",
+        title: "IEA 7月油市报告：今年全球石油需求预计下降，2027年反弹",
+        fact: "IEA报告称2026年全球石油需求预计下降100万桶/日，2027年反弹200万桶/日。",
+        map: "需求端偏弱削弱油价单边上行逻辑，A股更适合观察供给扰动和防御属性。",
+        related: "油气、煤炭、航空、化工下游、中国国航",
+        risk: "中东冲突、霍尔木兹通行变化会改变供需假设。",
+        source: "IEA Oil Market Report", sourceTime: "2026-07-11 16:00 CST", url: "https://www.iea.org/reports/oil-market-report-july-2026"
+      },
+      {
+        side: "国际", level: "mid", sentiment: "未知", sector: "贸易摩擦/芯片",
+        title: "美国半导体关税和出口管制仍是中美科技链主线变量",
+        fact: "白宫1月文件对特定半导体及设备进口作出调整，并要求后续评估数据中心芯片市场。",
+        map: "强化国产算力、先进封装、EDA、设备材料、自主可控软件硬件的中期逻辑。",
+        related: "国产算力、EDA、半导体设备、先进封装、寒武纪",
+        risk: "政策细则和豁免会改变受益方向，短线不宜只按标签交易。",
+        source: "White House Presidential Action", sourceTime: "2026-01-10 08:00 CST", url: "https://www.whitehouse.gov/presidential-actions/2026/01/adjusting-imports-of-semiconductors-semiconductor-manufacturing-equipment-and-their-derivative-products-into-the-united-states/"
+      },
+      {
+        side: "国际", level: "mid", sentiment: "利好", sector: "稀土/关键矿产",
+        title: "欧洲关注稀土供应链风险，关键矿产安全再度升温",
+        fact: "外媒报道欧盟正准备应对中国稀土相关供应链风险，核心在汽车、半导体和军工材料安全。",
+        map: "A股映射稀土永磁、小金属、磁材、电机和机器人上游。",
+        related: "稀土永磁、小金属、磁材、北方稀土、金力永磁",
+        risk: "外媒消息需等待政策落地，稀土股易受价格和出口口径扰动。",
+        source: "Financial Times", sourceTime: "2026-07-16 09:00 CST", url: "https://www.ft.com/content/94312204-47bc-4f61-b4a4-f6089ccc8e30"
+      },
+      {
+        side: "国际", level: "mid", sentiment: "未知", sector: "OPEC/油价预期",
+        title: "OPEC月报跟踪油市供需，短线关注需求预期下修与地缘溢价拉扯",
+        fact: "OPEC月报页面提供7月报告下载，市场将继续围绕需求预期、供应恢复和地缘风险定价。",
+        map: "A股关注油气、煤炭、化工、航运，以及油价回落时的航空和消费修复。",
+        related: "油气、煤炭、化工、航运、航空",
+        risk: "油价方向取决于供给和风险溢价，单一月报难以决定趋势。",
+        source: "OPEC MOMR", sourceTime: "2026-07-15 20:00 CST", url: "https://www.opec.org/monthly-oil-market-report.html"
+      },
+      {
+        side: "国内", level: "hot", sentiment: "未知", sector: "宏观/政策预期",
+        title: "上半年GDP同比增长4.7%，二季度同比4.3%",
+        fact: "国家统计局披露，上半年GDP为695704亿元，同比增长4.7%；二季度增长4.3%。",
+        map: "经济读数偏弱强化稳增长和结构性政策预期，利于内需、科技新质生产力、央国企和红利防御轮动。",
+        related: "稳增长、内需消费、央国企、红利资产、基建",
+        risk: "总量刺激强度仍需观察会议和部委政策，数据本身不代表单边行情。",
+        source: "国家统计局", sourceTime: "2026-07-15 10:00 CST", url: "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964121.html"
+      },
+      {
+        side: "国内", level: "hot", sentiment: "利好", sector: "存储/IPO",
+        title: "长鑫科技7月16日开启申购，科创板巨无霸IPO吸引资金关注",
+        fact: "上交所发行上市公告栏列示长鑫科技发行公告；公开信息显示股票代码688825、网上申购代码787825。",
+        map: "利好国产DRAM、存储模组、半导体设备材料，同时可能对高位科技股形成抽血效应。",
+        related: "DRAM、存储模组、半导体设备、长鑫科技、兆易创新",
+        risk: "大规模IPO对流动性有扰动，上市后估值和承接是后续关键。",
+        source: "上海证券交易所", sourceTime: "2026-07-16 08:00 CST", url: "https://www.sse.com.cn/disclosure/listedinfo/listing/"
+      },
+      {
+        side: "国内", level: "hot", sentiment: "利好", sector: "AI端侧/消费电子",
+        title: "7款手机端侧生成式AI服务完成备案，Apple智能等在列",
+        fact: "科创板日报引述网信部门备案信息，涉及Apple智能、华为小艺、OPPO AndesGPT、vivo蓝心、小米澎湃AI等。",
+        map: "短线映射手机AI、端侧大模型、SoC、存储、散热、声学光学、操作系统和应用生态。",
+        related: "AI手机、端侧AI、SoC、消费电子、立讯精密",
+        risk: "备案是合规前置，商业化放量仍看终端销量和应用体验。",
+        source: "科创板日报/财联社", sourceTime: "2026-07-16 08:33 CST", url: "https://www.cls.cn/detail/2427348"
+      },
+      {
+        side: "国内", level: "hot", sentiment: "利好", sector: "半导体设备",
+        title: "SEMI：2028年全球半导体设备销售额预计达2295亿美元",
+        fact: "SEMI报告预计2026年全球半导体制造设备销售额1659亿美元，同比增长23.2%，2028年达2295亿美元。",
+        map: "A股设备、零部件、材料、洁净室、先进封装和国产替代链条继续受催化。",
+        related: "半导体设备、设备零部件、洁净室、北方华创、中微公司",
+        risk: "全球景气不等于国产订单同步释放，注意设备股业绩兑现节奏。",
+        source: "SEMI China", sourceTime: "2026-07-15 18:00 CST", url: "https://www.semi.org.cn/site/semi/article/88d23b6850284acb8ecc6f06c0a59828.html"
+      },
+      {
+        side: "国内", level: "hot", sentiment: "利好", sector: "用电/算力/电力",
+        title: "6月互联网数据服务用电同比增长41.4%，充换电服务增长57.1%",
+        fact: "国家能源局披露，6月全社会用电8981亿千瓦时，同比增长3.7%；高技术及装备制造业用电增长10.3%。",
+        map: "利好算力电力、数据中心、储能、充电桩、电网设备和高端制造景气验证。",
+        related: "数据中心、电力设备、储能、充电桩、许继电气",
+        risk: "用电高增不等同利润高增，需看电价、利用小时和资本开支。",
+        source: "国家能源局", sourceTime: "2026-07-15 16:00 CST", url: "https://www.nea.gov.cn/20260715/ca1da417932c4fbfa26c0006f272d691/c.html"
+      },
+      {
+        side: "国内", level: "high", sentiment: "利好", sector: "货币/流动性",
+        title: "上半年社融增量20.84万亿元，M2同比增长8%",
+        fact: "财联社早间精选援引央行数据：6月末社融存量462.06万亿元，上半年社融增量20.84万亿元。",
+        map: "流动性维持合理充裕，有利于券商、成长和主题交易活跃，但信用结构仍需观察。",
+        related: "券商、互联网金融、成长股、央企红利、东方财富",
+        risk: "信贷降速提质背景下，资金未必全面流向权益。",
+        source: "财联社早间新闻精选", sourceTime: "2026-07-16 08:24 CST", url: "https://m.sohu.com/a/1050878797_222256"
+      },
+      {
+        side: "国内", level: "high", sentiment: "利好", sector: "集成电路/国产替代",
+        title: "统计局称上半年集成电路产量增长23.1%",
+        fact: "财联社早间精选援引统计局发布会口径，上半年规模以上工业企业集成电路产量2798亿块。",
+        map: "验证半导体产能和需求景气，关注晶圆制造、封测、材料、设备和存储链。",
+        related: "晶圆制造、封测、半导体材料、中芯国际、长电科技",
+        risk: "产量增长可能伴随价格波动，需结合毛利率和库存周期。",
+        source: "国家统计局发布会/财联社", sourceTime: "2026-07-15 10:00 CST", url: "https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964134.html"
+      },
+      {
+        side: "国内", level: "high", sentiment: "利好", sector: "消费/扩内需",
+        title: "《扩大消费“十五五”规划》聚焦服务消费、商品消费和新场景",
+        fact: "国家发改委、商务部有关负责人介绍规划，围绕6方面部署28条重点任务。",
+        map: "利好文旅、免税、银发经济、育儿、健康、汽车、智能产品和新消费平台。",
+        related: "文旅、免税、银发经济、汽车消费、中国中免",
+        risk: "规划偏中长期，短线需等待配套资金、地方细则或数据验证。",
+        source: "国家发展改革委", sourceTime: "2026-07-15 19:00 CST", url: "https://www.ndrc.gov.cn/"
+      },
+      {
+        side: "国内", level: "high", sentiment: "利好", sector: "工业/高端制造",
+        title: "6月规模以上工业增加值同比增长5.3%，新能源车产量162.4万辆",
+        fact: "国家统计局披露6月工业数据，其中新能源汽车产量162.4万辆，同比增长较强。",
+        map: "关注汽车零部件、机器人、高端装备、工业母机和出口制造链。",
+        related: "新能源汽车、汽车零部件、机器人、工业母机、拓普集团",
+        risk: "汽车产量与终端需求存在差异，价格战可能影响利润。",
+        source: "国家统计局", sourceTime: "2026-07-15 10:00 CST", url: "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964123.html"
+      },
+      {
+        side: "国内", level: "high", sentiment: "利空", sector: "消费数据",
+        title: "上半年社零同比增长1.3%，网上商品和服务零售增长5.2%",
+        fact: "国家统计局披露，上半年社零248722亿元，同比增长1.3%；网上商品和服务零售100715亿元，增长5.2%。",
+        map: "总消费偏弱，资金更偏向政策扶持的智能终端、服务消费和线上平台。",
+        related: "线上零售、智能终端、服务消费、家电、三只松鼠",
+        risk: "消费弱修复背景下，普涨难度大，注意业绩分化。",
+        source: "国家统计局", sourceTime: "2026-07-15 10:00 CST", url: "https://www.stats.gov.cn/sj/zxfb/202607/t20260715_1964127.html"
+      }
+    ];
+
+    const levelText = { hot: "极高", high: "高", mid: "中" };
+    const levelRank = { hot: 0, high: 1, mid: 2 };
+    const sentimentClass = { "利好": "good", "利空": "bad", "未知": "unknown" };
+    const sentimentRank = { "利好": 0, "未知": 1, "利空": 2 };
+    const rootMap = { "国际": document.getElementById("international"), "国内": document.getElementById("domestic") };
+
+    function timeValue(sourceTime) {
+      const match = sourceTime.match(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/);
+      if (!match) return 0;
+      const [, year, month, day, hour, minute] = match.map(Number);
+      return new Date(year, month - 1, day, hour, minute).getTime();
+    }
+
+    function compareItems(a, b, sortBy) {
+      if (sortBy === "level") {
+        return levelRank[a.level] - levelRank[b.level] || timeValue(b.sourceTime) - timeValue(a.sourceTime);
+      }
+      if (sortBy === "sentiment") {
+        return sentimentRank[a.sentiment] - sentimentRank[b.sentiment] || timeValue(b.sourceTime) - timeValue(a.sourceTime);
+      }
+      return timeValue(b.sourceTime) - timeValue(a.sourceTime);
+    }
+
+    function sourceTimeHtml(item) {
+      return item.side === "国际"
+        ? item.sourceTime.replace(/^(\d{4}-\d{2}-\d{2})/, '$1<span class="day-offset">(-1)</span>')
+        : item.sourceTime;
+    }
+
+    function includesAny(text, words) {
+      return words.some(word => text.includes(word));
+    }
+
+    function catalystType(item) {
+      const text = `${item.title}${item.fact}${item.sector}`;
+      if (includesAny(text, ["规划", "政策", "备案", "启动", "专项行动", "关税", "管制", "白宫"])) return "政策催化";
+      if (includesAny(text, ["业绩", "预告", "营收", "ASML", "台积电"])) return "业绩催化";
+      if (includesAny(text, ["IPO", "申购", "社融", "M2", "美元指数", "美债", "北向资金"])) return "资金催化";
+      if (includesAny(text, ["GDP", "PPI", "零售", "用电", "进出口", "工业", "社零", "固定资产", "初请", "通胀", "产出"])) return "数据催化";
+      if (includesAny(text, ["EIA", "IEA", "OPEC", "稀土", "地缘", "油市", "库存"])) return "事件催化";
+      return "事件催化";
+    }
+
+    function impactHorizon(item) {
+      const text = `${item.title}${item.sector}`;
+      if (includesAny(text, ["关税", "管制", "WSTS", "机器人", "规划", "SEMI", "国产替代"])) return "一周";
+      if (includesAny(text, ["业绩", "预告", "申购", "备案", "ASML", "台积电", "电子布"])) return "1-3日";
+      if (includesAny(text, ["GDP", "PPI", "零售", "初请", "通胀", "EIA", "美元指数", "美债", "社融"])) return "日内";
+      if (includesAny(text, ["White House", "半导体关税"])) return "中线";
+      return item.level === "hot" ? "1-3日" : "日内";
+    }
+
+    function attentionLevel(item) {
+      const text = `${item.title}${item.sector}${item.related}`;
+      if (item.level === "hot" || includesAny(text, ["AI", "半导体", "机器人", "算力", "存储", "PCB", "端侧", "数据中心"])) return "高";
+      if (item.level === "high" || includesAny(text, ["消费", "出口", "有色", "油气", "券商", "电力"])) return "中";
+      return "低";
+    }
+
+    function tradeAction(item) {
+      const text = `${item.title}${item.risk}${item.related}`;
+      if (item.sentiment === "利空") return "避险";
+      if (includesAny(text, ["高位", "溢价", "抽血", "扰动", "分歧"])) return "谨慎追高";
+      if (item.sentiment === "未知") return item.level === "hot" ? "只看龙头" : "观察";
+      if (attentionLevel(item) === "高") return "只看龙头";
+      return "可参与";
+    }
+
+    function certaintyScore(item) {
+      const text = `${item.source}${item.title}${item.fact}`;
+      if (includesAny(text, ["国家统计局", "海关总署", "国家能源局", "上海证券交易所", "美国劳工统计局", "EIA", "Federal Reserve", "Eurostat"])) return "5星";
+      if (includesAny(text, ["国家发展改革委", "ASML", "TSMC", "WSTS", "IEA", "OPEC", "SEMI", "工信"])) return "4星";
+      if (includesAny(text, ["财联社", "科创板日报", "证券时报"])) return "3星";
+      if (includesAny(text, ["Financial Times", "外媒"])) return "3星";
+      return "3星";
+    }
+
+    function riskLevel(item) {
+      const text = `${item.title}${item.risk}${item.sentiment}`;
+      if (item.sentiment === "利空" || includesAny(text, ["高位", "溢价", "抽血", "扰动", "外媒", "地缘", "关税", "管制", "退市"])) return "高";
+      if (includesAny(text, ["分歧", "兑现", "周期", "审批", "不确定", "价格波动", "未必", "传导偏间接"])) return "中";
+      return "低";
+    }
+
+    function isFocusItem(item) {
+      return item.level === "hot"
+        && item.sentiment === "利好"
+        && attentionLevel(item) === "高"
+        && riskLevel(item) !== "高";
+    }
+
+    function updateSummary(list) {
+      const summary = list.reduce((acc, item) => {
+        if (item.sentiment === "利好") acc.good += 1;
+        if (item.sentiment === "利空") acc.bad += 1;
+        if (item.sentiment === "未知") acc.unknown += 1;
+        if (attentionLevel(item) === "高") acc.highAttention += 1;
+        if (riskLevel(item) === "高") acc.highRisk += 1;
+        return acc;
+      }, { good: 0, bad: 0, unknown: 0, highAttention: 0, highRisk: 0 });
+
+      document.getElementById("goodCount").textContent = summary.good;
+      document.getElementById("badCount").textContent = summary.bad;
+      document.getElementById("unknownCount").textContent = summary.unknown;
+      document.getElementById("highAttentionCount").textContent = summary.highAttention;
+      document.getElementById("highRiskCount").textContent = summary.highRisk;
+    }
+
+    function render() {
+      const q = document.getElementById("q").value.trim().toLowerCase();
+      const level = document.getElementById("level").value;
+      const sortBy = document.getElementById("sortBy").value;
+      const filtered = items.filter(item => {
+        const blob = Object.values(item).join(" ").toLowerCase();
+        return (!level || item.level === level) && (!q || blob.includes(q));
+      }).sort((a, b) => compareItems(a, b, sortBy));
+
+      Object.values(rootMap).forEach(el => el.innerHTML = "");
+      updateSummary(filtered);
+      let intl = 0;
+      let domestic = 0;
+
+      filtered.forEach((item, index) => {
+        if (item.side === "国际") intl += 1; else domestic += 1;
+        const rank = item.side === "国际" ? intl : domestic;
+        const card = document.createElement("article");
+        card.className = `card ${item.level}`;
+        card.innerHTML = `
+          <div class="topline">
+            <span class="rank">${String(rank).padStart(2, "0")}</span>
+            <span class="line">${item.side}线</span>
+            <span class="impact ${item.level}">重要度：${levelText[item.level]}</span>
+            <span class="sentiment ${sentimentClass[item.sentiment]}">${item.sentiment}</span>
+            ${isFocusItem(item) ? '<span class="focus-badge">重点观察</span>' : ''}
+            <span class="tag">${item.sector}</span>
+          </div>
+          <div class="trade-grid">
+            <div class="trade-cell"><b>催化类型</b><span>${catalystType(item)}</span></div>
+            <div class="trade-cell"><b>影响周期</b><span>${impactHorizon(item)}</span></div>
+            <div class="trade-cell"><b>资金关注度</b><span>${attentionLevel(item)}</span></div>
+            <div class="trade-cell"><b>交易方向</b><span>${tradeAction(item)}</span></div>
+            <div class="trade-cell"><b>确定性评分</b><span>${certaintyScore(item)}</span></div>
+            <div class="trade-cell"><b>风险等级</b><span>${riskLevel(item)}</span></div>
+          </div>
+          <h3>${item.title}</h3>
+          <p class="detail-line"><span class="label">事实：</span>${item.fact}</p>
+          <p class="detail-line"><span class="label">A股映射：</span>${item.map}</p>
+          <p class="detail-line"><span class="label">相关板块或个股：</span>${item.related}</p>
+          <p class="detail-line risk"><span class="label">风险：</span>${item.risk}</p>
+          <p class="source-line"><span><span class="label">来源：</span><a href="${item.url}" target="_blank" rel="noopener">${item.source}</a></span><span><span class="label">发布时间：</span>${sourceTimeHtml(item)}</span></p>
+        `;
+        rootMap[item.side].appendChild(card);
+      });
+
+      document.getElementById("intlCount").textContent = `显示 ${intl} / 10`;
+      document.getElementById("domesticCount").textContent = `显示 ${domestic} / 10`;
+    }
+
+    document.getElementById("q").addEventListener("input", render);
+    document.getElementById("level").addEventListener("change", render);
+    document.getElementById("sortBy").addEventListener("change", render);
+    document.getElementById("print").addEventListener("click", () => window.print());
+    render();
+  </script>
+</body>
+</html>
