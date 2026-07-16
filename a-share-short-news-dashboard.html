@@ -105,8 +105,37 @@
     .section-head {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
       margin: 0 0 12px;
+    }
+    .section-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 34px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .section-toggle:hover {
+      text-decoration: none;
+    }
+    .arrow {
+      display: inline-block;
+      width: 18px;
+      color: var(--muted);
+      font-size: 16px;
+      transform: rotate(90deg);
+      transition: transform .16s ease;
+    }
+    section.collapsed .arrow {
+      transform: rotate(0deg);
+    }
+    section.collapsed .section-body {
+      display: none;
     }
     h2 {
       margin: 0;
@@ -313,19 +342,19 @@
   </div>
 
   <main>
-    <section>
+    <section id="domesticSection">
       <div class="section-head">
-        <h2>国际线</h2>
-        <span class="count" id="intlCount"></span>
-      </div>
-      <div id="international"></div>
-    </section>
-    <section>
-      <div class="section-head">
-        <h2>国内线</h2>
+        <button class="section-toggle" data-target="domesticSection" type="button"><span class="arrow">›</span><span>国内线</span></button>
         <span class="count" id="domesticCount"></span>
       </div>
-      <div id="domestic"></div>
+      <div class="section-body" id="domestic"></div>
+    </section>
+    <section id="internationalSection">
+      <div class="section-head">
+        <button class="section-toggle" data-target="internationalSection" type="button"><span class="arrow">›</span><span>国际线</span></button>
+        <span class="count" id="intlCount"></span>
+      </div>
+      <div class="section-body" id="international"></div>
     </section>
   </main>
 
@@ -679,6 +708,11 @@
     document.getElementById("level").addEventListener("change", render);
     document.getElementById("sortBy").addEventListener("change", render);
     document.getElementById("print").addEventListener("click", () => window.print());
+    document.querySelectorAll(".section-toggle").forEach(button => {
+      button.addEventListener("click", () => {
+        document.getElementById(button.dataset.target).classList.toggle("collapsed");
+      });
+    });
     render();
   </script>
 </body>
