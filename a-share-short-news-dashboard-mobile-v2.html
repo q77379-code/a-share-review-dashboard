@@ -48,7 +48,7 @@
       top: 0;
       z-index: 10;
       display: grid;
-      grid-template-columns: minmax(220px, 1fr) auto auto;
+      grid-template-columns: minmax(220px, 1fr) auto auto auto;
       gap: 10px;
       padding: 12px 28px;
       background: rgba(246, 247, 249, .96);
@@ -70,7 +70,7 @@
     }
     .summary-bar {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(7, minmax(0, 1fr));
       gap: 10px;
       padding: 14px 28px 0;
     }
@@ -203,6 +203,18 @@
       font-weight: 800;
       border: 1px solid #f5c542;
     }
+    .new-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #047857;
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid #86efac;
+    }
     .trade-grid {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -330,6 +342,10 @@
       <option value="level">按重要程度排序</option>
       <option value="sentiment">按利空利好排序</option>
     </select>
+    <select id="newOnly">
+      <option value="">全部资讯</option>
+      <option value="new">只看新增</option>
+    </select>
   </div>
 
   <div class="summary-bar">
@@ -338,6 +354,8 @@
     <div class="summary-item"><b>未知</b><span id="unknownCount">0</span></div>
     <div class="summary-item"><b>高关注</b><span id="highAttentionCount">0</span></div>
     <div class="summary-item"><b>高风险</b><span id="highRiskCount">0</span></div>
+    <div class="summary-item"><b>新增国内</b><span id="newDomesticCount">0</span></div>
+    <div class="summary-item"><b>新增国际</b><span id="newIntlCount">0</span></div>
   </div>
 
   <main>
@@ -550,6 +568,11 @@
     const sentimentClass = { "利好": "good", "利空": "bad", "未知": "unknown" };
     const sentimentRank = { "利好": 0, "未知": 1, "利空": 2 };
     const rootMap = { "国际": document.getElementById("international"), "国内": document.getElementById("domestic") };
+    const snapshotKey = "a_share_short_news_snapshot_ids";
+    const snapshotTimeKey = "a_share_short_news_snapshot_time";
+    const currentSnapshotTime = "2026-07-16 13:43 CST";
+    const previousIds = new Set(JSON.parse(localStorage.getItem(snapshotKey) || "[]"));
+    const hasPreviousSnapshot = previousIds.size > 0;
 
     function timeValue(sourceTime) {
       const match = sourceTime.match(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/);
@@ -576,6 +599,14 @@
 
     function includesAny(text, words) {
       return words.some(word => text.includes(word));
+    }
+
+    function stableId(item) {
+      return `${item.side}|${item.title}|${item.source}|${item.sourceTime}`;
+    }
+
+    function isNewItem(item) {
+      return hasPreviousSnapshot && !previousIds.has(stableId(item));
     }
 
     function catalystType(item) {
@@ -643,23 +674,30 @@
         if (item.sentiment === "未知") acc.unknown += 1;
         if (attentionLevel(item) === "高") acc.highAttention += 1;
         if (riskLevel(item) === "高") acc.highRisk += 1;
+        if (isNewItem(item) && item.side === "国内") acc.newDomestic += 1;
+        if (isNewItem(item) && item.side === "国际") acc.newIntl += 1;
         return acc;
-      }, { good: 0, bad: 0, unknown: 0, highAttention: 0, highRisk: 0 });
+      }, { good: 0, bad: 0, unknown: 0, highAttention: 0, highRisk: 0, newDomestic: 0, newIntl: 0 });
 
       document.getElementById("goodCount").textContent = summary.good;
       document.getElementById("badCount").textContent = summary.bad;
       document.getElementById("unknownCount").textContent = summary.unknown;
       document.getElementById("highAttentionCount").textContent = summary.highAttention;
       document.getElementById("highRiskCount").textContent = summary.highRisk;
+      document.getElementById("newDomesticCount").textContent = summary.newDomestic;
+      document.getElementById("newIntlCount").textContent = summary.newIntl;
     }
 
     function render() {
       const q = document.getElementById("q").value.trim().toLowerCase();
       const level = document.getElementById("level").value;
       const sortBy = document.getElementById("sortBy").value;
+      const newOnly = document.getElementById("newOnly").value;
       const filtered = items.filter(item => {
         const blob = Object.values(item).join(" ").toLowerCase();
-        return (!level || item.level === level) && (!q || blob.includes(q));
+        return (!level || item.level === level)
+          && (!q || blob.includes(q))
+          && (!newOnly || isNewItem(item));
       }).sort((a, b) => compareItems(a, b, sortBy));
 
       Object.values(rootMap).forEach(el => el.innerHTML = "");
@@ -678,6 +716,7 @@
             <span class="line">${item.side}线</span>
             <span class="impact ${item.level}">重要度：${levelText[item.level]}</span>
             <span class="sentiment ${sentimentClass[item.sentiment]}">${item.sentiment}</span>
+            ${isNewItem(item) ? '<span class="new-badge">新增</span>' : ''}
             ${isFocusItem(item) ? '<span class="focus-badge">重点观察</span>' : ''}
             <span class="tag">${item.sector}</span>
           </div>
@@ -706,12 +745,15 @@
     document.getElementById("q").addEventListener("input", render);
     document.getElementById("level").addEventListener("change", render);
     document.getElementById("sortBy").addEventListener("change", render);
+    document.getElementById("newOnly").addEventListener("change", render);
     document.querySelectorAll(".section-toggle").forEach(button => {
       button.addEventListener("click", () => {
         document.getElementById(button.dataset.target).classList.toggle("collapsed");
       });
     });
     render();
+    localStorage.setItem(snapshotKey, JSON.stringify(items.map(stableId)));
+    localStorage.setItem(snapshotTimeKey, currentSnapshotTime);
   </script>
 </body>
 </html>
