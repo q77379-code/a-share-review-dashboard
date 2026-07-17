@@ -322,7 +322,7 @@
   <header>
     <h1>A股短线资讯看板</h1>
     <div class="meta">
-      <span>生成时间：2026-07-17 09:20:00 CST</span>
+      <span>生成时间：2026-07-17 12:50:00 CST</span>
       <span>口径：国际 10 条 / 国内 10 条</span>
       <span>筛选：优先官方、交易所、上市公司公告、权威媒体；剔除股吧小道消息</span>
       <span>用途：短线情绪与板块映射，不构成投资建议</span>
@@ -382,49 +382,58 @@
   <script>
     const items = [
       {
-        side: "国内", level: "hot", sentiment: "利好", sector: "稀有气体/半导体材料",
+        side: "国内", level: "hot", sentiment: "利好", sector: "人工智能/机器人/算力应用",
+        title: "世界人工智能大会开幕并发布高层主旨讲话，AI主线再获最高规格催化",
+        fact: "新华社7月17日上午报道，2026世界人工智能大会暨人工智能全球治理高级别会议在上海开幕，并发布主旨讲话，会议于7月17日至20日举行。",
+        map: "短线强化算力、模型应用、机器人、智能终端和国产AI基础设施关注度，容易带动大会映射股与上海本地AI链活跃。",
+        related: "人工智能、机器人、算力、智能终端、上海本地股、科大讯飞、寒武纪",
+        risk: "大会催化更偏情绪和主题演绎，若缺少订单、业绩或产品落地配合，相关个股容易冲高分化。",
+        source: "新华网", sourceTime: "2026-07-17 10:02 CST", url: "https://www.news.cn/politics/20260717/7bc11a7181184f45899cda4f9c69c687/c.html"
+      },
+      {
+        side: "国内", level: "hot", sentiment: "利好", sector: "跨境支付/券商/出口链",
+        title: "上半年我国涉外收支和结售汇规模均创同期新高，跨境业务景气获验证",
+        fact: "新华社援引国家外汇管理局数据称，上半年银行代客涉外收支合计9.2万亿美元，同比增长21%；银行结售汇规模合计2.9万亿美元，同比增长24%，均创历史同期新高。",
+        map: "利好跨境支付、银行国际业务、出海链和人民币国际化主题，短线更偏支付清算与跨境金融IT方向。",
+        related: "跨境支付、银行IT、出海链、人民币国际化、新国都、拉卡拉",
+        risk: "宏观数据改善对个股利润传导存在时滞，跨境金融题材仍需后续政策和业务数据持续验证。",
+        source: "新华网", sourceTime: "2026-07-17 10:03 CST", url: "https://www.news.cn/20260717/e7337cd2a3404d778b64de566d4cf148/c.html"
+      },
+      {
+        side: "国内", level: "hot", sentiment: "利好", sector: "国产算力/CPU/DCU",
+        title: "海光信息上半年净利预增41.5%至52.32%，国产高端处理器景气延续",
+        fact: "公司披露业绩预告，预计2026年上半年营业收入85亿元至93亿元，同比增长55.56%至70.20%；归母净利润17亿元至18.3亿元，同比增长41.5%至52.32%。",
+        map: "直接映射国产CPU、DCU、服务器整机、液冷和整机配套，强化自主可控算力主线。",
+        related: "国产算力、CPU、DCU、服务器、海光信息、中科曙光",
+        risk: "高弹性龙头估值已处高位，若后续订单增速或利润率不及预期，短线容易出现获利兑现。",
+        source: "证券时报", sourceTime: "2026-07-16 19:36 CST", url: "https://www.stcn.com/article/detail/4023887.html"
+      },
+      {
+        side: "国内", level: "hot", sentiment: "利好", sector: "内存接口/AI服务器/高速互连",
+        title: "澜起科技预告上半年净利19亿至21亿元，AI服务器与DDR5链条继续强化",
+        fact: "公司公告预计2026年半年度营业收入约33.35亿元，同比增长约26.6%；归母净利润19亿元至21亿元，同比增长63.9%至81.2%。",
+        map: "利好内存接口芯片、AI服务器、PCB、连接器与高速铜缆，强化算力链向上游扩散。",
+        related: "服务器芯片、内存接口、AI服务器、PCB、澜起科技、沪电股份",
+        risk: "公司同时面临韩国办公室被调查等扰动，若外部事件发酵，可能压制业绩利好的短线兑现效率。",
+        source: "每日经济新闻", sourceTime: "2026-07-16 23:45 CST", url: "https://www.nbd.com.cn/articles/2026-07-16/4475265.html"
+      },
+      {
+        side: "国内", level: "hot", sentiment: "利好", sector: "芯片设计/IP/ASIC",
+        title: "芯原股份年内新签订单146.53亿元，AI算力和数据处理订单占比高",
+        fact: "公司公告称，2026年1月1日至7月16日新签订单合计146.53亿元；其中4月30日至7月16日新签订单64.13亿元，AI算力相关订单及数据处理领域订单占比均超过90%。",
+        map: "利好ASIC、IP授权、端侧AI SoC、先进封装与设计服务，容易带动芯片设计板块情绪。",
+        related: "芯片设计、IP、ASIC、端侧AI、芯原股份、寒武纪",
+        risk: "订单口径不等于收入确认节奏，后续仍要看量产兑现、客户集中度和毛利率表现。",
+        source: "证券时报", sourceTime: "2026-07-16 19:35 CST", url: "https://www.stcn.com/article/detail/4023889.html"
+      },
+      {
+        side: "国内", level: "high", sentiment: "利好", sector: "稀有气体/半导体材料",
         title: "商务部明确对氦相关物项实施临时出口管制，国产替代预期升温",
         fact: "商务部新闻发布会表示，自2026年8月15日起，对氦及相关物项实施临时出口管制，以维护国家安全和利益、履行防扩散义务。",
         map: "短线催化工业气体、电子特气、半导体材料和低温装备方向，资金更可能聚焦稀有气体与国产替代链。",
         related: "电子特气、工业气体、半导体材料、凯美特气、金宏气体",
         risk: "政策主要影响供给与贸易节奏，真正受益仍取决于下游认证、扩产与价格传导。",
         source: "商务部新闻发布会", sourceTime: "2026-07-16 18:00 CST", url: "https://fec.mofcom.gov.cn/article/xwdt/xwdtqtzx/xwzcdt/202607/6900.html"
-      },
-      {
-        side: "国内", level: "hot", sentiment: "利好", sector: "国产算力/CPU/DCU",
-        title: "海光信息预计上半年净利润同比大增，国产算力景气再被验证",
-        fact: "海光信息披露2026年半年度业绩预告，预计上半年归母净利润同比增长约47.8%到65.0%，核心受益于高端处理器放量。",
-        map: "直接映射国产CPU、DCU、服务器整机、液冷和算力配套，容易强化自主可控算力主线。",
-        related: "国产算力、CPU、DCU、服务器、海光信息、中科曙光",
-        risk: "高景气已被部分龙头提前计价，若后续订单或利润率不及预期，短线容易高位分歧。",
-        source: "海光信息公告", sourceTime: "2026-07-17 08:00 CST", url: "https://ggjd.cnstock.com/company/scp_ggjd/tjd_688041/202607/5419350.htm"
-      },
-      {
-        side: "国内", level: "hot", sentiment: "利好", sector: "存储接口/服务器芯片",
-        title: "澜起科技上半年业绩预增，AI服务器与内存接口链条继续强化",
-        fact: "澜起科技披露半年度业绩预告，预计上半年归母净利润同比增长约85.5%到102.4%，服务器及高性能互连需求延续。",
-        map: "利好内存接口芯片、AI服务器、PCB、连接器与高速铜缆，强化算力链向上游扩散。",
-        related: "服务器芯片、内存接口、AI服务器、PCB、澜起科技、沪电股份",
-        risk: "海外算力资本开支若阶段性波动，接口芯片与服务器链估值弹性也会同步放大。",
-        source: "澜起科技公告", sourceTime: "2026-07-17 08:00 CST", url: "https://finance.sina.com.cn/roll/2026-07-17/doc-inffwzru7271043.shtml"
-      },
-      {
-        side: "国内", level: "hot", sentiment: "利好", sector: "芯片设计/IP/AI SoC",
-        title: "芯原股份披露新签订单146.53亿元，AI与数据处理占比超九成",
-        fact: "芯原股份公告称截至6月30日已在手订单及意向订单合计146.53亿元，其中AIGC、数据处理相关领域占比超过90%。",
-        map: "短线利好IP授权、ASIC、端侧AI SoC、先进封装与算力设计服务，容易带动芯片设计板块情绪。",
-        related: "芯片设计、IP、ASIC、端侧AI、芯原股份、寒武纪",
-        risk: "订单口径不等于收入确认节奏，后续仍要看量产兑现、毛利率和客户集中度。",
-        source: "芯原股份公告", sourceTime: "2026-07-17 08:00 CST", url: "https://ggjd.cnstock.com/company/scp_ggjd/tjd_688521/202607/5419377.htm"
-      },
-      {
-        side: "国内", level: "hot", sentiment: "未知", sector: "存储/科创板IPO",
-        title: "长鑫科技网上发行中签率约0.4714%，大体量IPO继续吸引科技资金",
-        fact: "长鑫科技首次公开发行并在科创板上市网上发行申购情况及中签率公告显示，网上发行最终中签率约为0.4714%。",
-        map: "一方面强化国产DRAM、设备材料和存储链热度，另一方面也可能对高位科技股形成短线流动性抽离。",
-        related: "DRAM、存储模组、半导体设备、长鑫科技、佰维存储",
-        risk: "大盘股IPO的情绪与抽血效应并存，上市定价和二级市场承接仍是后续关键变量。",
-        source: "长鑫科技发行公告", sourceTime: "2026-07-17 08:00 CST", url: "https://ggjd.cnstock.com/company/scp_ggjd/tjd_688825/202607/5419359.htm"
       },
       {
         side: "国内", level: "high", sentiment: "利好", sector: "海水淡化/膜材料/环保设备",
@@ -445,31 +454,22 @@
         source: "国家能源局", sourceTime: "2026-07-15 16:00 CST", url: "https://www.nea.gov.cn/20260715/ca1da417932c4fbfa26c0006f272d691/c.html"
       },
       {
-        side: "国内", level: "high", sentiment: "利好", sector: "集成电路/设备材料",
-        title: "上半年集成电路产量同比增长23.1%，半导体景气继续获得统计验证",
-        fact: "国家统计局发布会口径显示，上半年规模以上工业集成电路产量1798亿块，同比增长23.1%。",
-        map: "继续利好多晶圆制造、封测、设备、材料和存储链，强化半导体景气而非纯题材的交易逻辑。",
-        related: "晶圆制造、封测、半导体材料、设备、中芯国际、长电科技",
-        risk: "产量增长不等于盈利同步增长，仍需结合价格、库存和资本开支节奏判断持续性。",
-        source: "国家统计局", sourceTime: "2026-07-15 10:00 CST", url: "https://www.stats.gov.cn/sj/zxfbhjd/202607/t20260715_1964134.html"
-      },
-      {
-        side: "国内", level: "high", sentiment: "未知", sector: "控制权变更/家电",
+        side: "国内", level: "high", sentiment: "未知", sector: "控制权变更/家电/跨境电商",
         title: "浙江美大披露控制权拟变更并复牌，控制权概念再获事件催化",
-        fact: "浙江美大公告称公司控股股东、实际控制人正在筹划股份转让等事项，可能导致公司控制权发生变更，公司股票于7月17日复牌。",
+        fact: "浙江美大公告称，公司股票于7月17日开市起复牌；股份转让完成后，公司控股股东、实际控制人将变更为张海政，交易仍需合规确认及过户登记。",
         map: "短线容易催化控制权变更、壳资源与低位消费制造个股活跃，但持续性更依赖接盘方资质和后续资产安排。",
-        related: "控制权变更、家电、壳资源、浙江美大",
-        risk: "控制权交易存在不确定性，若后续受让方背景或注入预期不及市场想象，容易出现高开回落。",
-        source: "浙江美大公告", sourceTime: "2026-07-17 08:00 CST", url: "https://www.cninfo.com.cn/new/disclosure/detail?plate=szse&orgId=9900021570&stockCode=002677&announcementId=1224154859"
+        related: "控制权变更、家电、跨境电商、壳资源、浙江美大",
+        risk: "股份转让尚未最终完成，若后续审批、过户或资产注入预期落空，容易出现高开回落。",
+        source: "浙江美大公告", sourceTime: "2026-07-17 08:00 CST", url: "https://static.cninfo.com.cn/finalpage/2026-07-17/1225429107.PDF"
       },
       {
         side: "国内", level: "high", sentiment: "利空", sector: "*ST/黄金珠宝",
-        title: "*ST萃华澄清并购重组与实控人变更传闻，投机预期被压降",
-        fact: "*ST萃华公告称，近期市场关于公司并购重组、实控人变更等传闻不属实，目前不存在应披露而未披露的重大事项。",
+        title: "*ST萃华澄清并购重组与实控人变更传闻不实，投机预期被压降",
+        fact: "公司公告称，市场关于“周大福并购重组”“实控人拟变更”等传闻为不实信息，公司目前无正在筹划中的并购重组或实际控制权变更事宜。",
         map: "对近期依赖传闻驱动的ST与壳资源题材构成压制，资金更可能回流有正式公告支撑的事件股。",
         related: "*ST、黄金珠宝、壳资源、*ST萃华",
-        risk: "ST板块波动极大，澄清后若资金继续博弈监管边界，仍可能出现超预期情绪波动。",
-        source: "*ST萃华公告", sourceTime: "2026-07-17 08:00 CST", url: "https://www.cninfo.com.cn/new/disclosure/detail?plate=szse&orgId=9900003577&stockCode=002731&announcementId=1224154807"
+        risk: "公司仍面临年报未披露、退市风险警示和被立案调查等多重风险，相关博弈波动可能极大。",
+        source: "*ST萃华公告", sourceTime: "2026-07-16 23:09 CST", url: "https://static.cninfo.com.cn/finalpage/2026-07-17/1225429029.PDF"
       },
       {
         side: "国际", level: "hot", sentiment: "利好", sector: "台积电/先进制程/AI芯片",
@@ -570,7 +570,7 @@
     const rootMap = { "国际": document.getElementById("international"), "国内": document.getElementById("domestic") };
     const snapshotKey = "a_share_short_news_snapshot_ids";
     const snapshotTimeKey = "a_share_short_news_snapshot_time";
-    const currentSnapshotTime = "2026-07-17 09:20 CST";
+    const currentSnapshotTime = "2026-07-17 12:50 CST";
     const previousIds = new Set(JSON.parse(localStorage.getItem(snapshotKey) || "[]"));
     const hasPreviousSnapshot = previousIds.size > 0;
 
