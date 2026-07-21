@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>A股复盘看板｜2026-07-20</title>
+  <title>A股复盘看板｜2026-07-21</title>
   <style>
     :root{
       --red:#e60012;--green:#009944;--blue:#2878ff;--ink:#19202a;
@@ -25,7 +25,8 @@
     .flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.flow-card{background:#f8f9fb;border-radius:11px;padding:14px}.flow-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.flow-name{font-size:13px;font-weight:750}.flow-value{font-size:16px;font-weight:850}.bar-track{height:7px;background:#e5e8ed;border-radius:99px;margin-top:11px;overflow:hidden}.bar{height:100%;border-radius:99px}.bar.pos{background:var(--red)}.bar.neg{background:var(--green)}.flow-note{font-size:10px;color:var(--muted);margin-top:6px}
     .method{font-size:11px;color:var(--muted);line-height:1.8;margin-top:13px;padding-top:12px;border-top:1px dashed var(--line)}
     .strategy-summary{text-align:center;color:var(--red);font-size:20px;font-weight:850;margin:-2px 0 15px}.strategy-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.strategy-card{background:#f8f9fb;border-radius:11px;padding:15px 16px;border-left:4px solid var(--red)}.strategy-card.alt{border-left-color:var(--blue)}.strategy-card h3{margin:0 0 7px;font-size:15px}.strategy-card p{margin:0;color:#404957;font-size:12px;line-height:1.75}.strategy-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.strategy-tag{border:1px solid #dfe4eb;background:#fff;border-radius:99px;padding:3px 9px;font-size:10px}.signal-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:13px}.signal-table th,.signal-table td{padding:9px 10px;border-bottom:1px solid #e8ebef;text-align:center}.signal-table th{background:#f6f7f9}.signal-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;background:#ff9f1a}.signal-dot.good{background:var(--red)}.signal-bottom{display:grid;grid-template-columns:1fr 1.15fr;gap:10px;margin-top:13px}.signal-box{border:1px solid #e5e9ef;border-radius:11px;padding:14px}.signal-box h3{font-size:14px;margin:0 0 10px}.heat-row{display:grid;grid-template-columns:100px 1fr 48px;align-items:center;gap:8px;font-size:11px;margin:9px 0}.heat-track{height:7px;background:#e5e8ed;border-radius:99px;overflow:hidden}.heat-fill{height:100%;background:var(--red);border-radius:99px}.playbook{margin:0;padding-left:22px;font-size:11px;line-height:1.85}.discipline{margin-top:9px;border:1px solid #ffd37d;background:#fffaf0;border-radius:8px;padding:9px 11px;font-size:12px;font-weight:800}.strategy-disclaimer{font-size:10px;color:var(--muted);text-align:center;margin-top:12px}
-    .calendar-scroll{overflow-x:auto}.calendar-shell{min-width:850px}.weekday-row,.history-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.weekday{font-size:11px;font-weight:750;text-align:center;color:#586171;padding:3px}.history-calendar{margin-top:4px}.cal-day{min-height:156px;border:1px solid #e8ebef;border-radius:9px;padding:10px 9px;display:flex;flex-direction:column;justify-content:space-between}.cal-day.day-up{background:#fff0f1;border-color:#f4dadd}.cal-day.day-down{background:#edf8f2;border-color:#dcefe4}.cal-day.day-flat{background:#f7f8fa}.cal-day.off{background:#fafafa;color:#a8afb8;justify-content:flex-start;text-align:center}.cal-day.future{background:#fbfbfc;color:#bbc0c7;justify-content:flex-start;text-align:center}.cal-date{font-size:13px;font-weight:850;display:flex;align-items:center;justify-content:center;gap:5px}.cal-date .live{font-size:9px;background:#ffb020;color:#392700;padding:1px 5px;border-radius:99px}.cal-index{font-size:11px;color:#5f6875;text-align:center;margin-top:5px}.cal-change{text-align:center;font-size:13px;font-weight:850;margin-top:1px}.cal-turnover{text-align:center;font-size:12px;font-weight:750;color:#1b65c9;margin-top:2px}.cal-turnover-diff{text-align:center;font-size:10px;font-weight:750;margin-top:2px}.cal-counts{display:flex;justify-content:space-between;font-size:9px;color:#6f7783;margin-top:8px}.breadth-bar{display:flex;height:7px;border-radius:99px;overflow:hidden;background:#e4e7eb;margin-top:3px}.breadth-bar .rise{background:var(--red)}.breadth-bar .fall{background:var(--green)}.off-text{font-size:12px;font-weight:700;color:#c4c8ce;margin-top:10px}
+    .calendar-scroll{overflow-x:auto}.calendar-shell{min-width:850px}.weekday-row,.history-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.weekday{font-size:11px;font-weight:750;text-align:center;color:#586171;padding:3px}.history-calendar{margin-top:4px}.cal-day{min-height:172px;border:1px solid #e8ebef;border-radius:9px;padding:10px 9px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.cal-day::before{content:"";position:absolute;inset:0;opacity:0;pointer-events:none}.cal-day>*{position:relative}.cal-day.day-up{background:#fff0f1;border-color:#f4dadd}.cal-day.day-down{background:#edf8f2;border-color:#dcefe4}.cal-day.day-flat{background:#f7f8fa}.cal-day.heat-wide{background:#e1f3ea;border-color:#b8e0cb}.cal-day.heat-loss{background:#cdefdd;border-color:#8fcaa9}.cal-day.heat-ice{background:#a8dcc1;border-color:#63b18a}.cal-day.heat-extreme{background:#73bd93;border-color:#2f8a5a;color:#072817}.cal-day.heat-extreme::before{opacity:.22;background:linear-gradient(135deg,transparent 0 48%,rgba(0,0,0,.22) 49% 51%,transparent 52%)}.cal-day.off{background:#fafafa;color:#a8afb8;justify-content:flex-start;text-align:center}.cal-day.future{background:#fbfbfc;color:#bbc0c7;justify-content:flex-start;text-align:center}.cal-date{font-size:13px;font-weight:850;display:flex;align-items:center;justify-content:center;gap:5px}.cal-date .live{font-size:9px;background:#ffb020;color:#392700;padding:1px 5px;border-radius:99px}.cal-index{font-size:11px;color:#5f6875;text-align:center;margin-top:5px}.heat-extreme .cal-index{color:#16422b}.cal-change{text-align:center;font-size:13px;font-weight:850;margin-top:1px}.cal-turnover{text-align:center;font-size:12px;font-weight:750;color:#1b65c9;margin-top:2px}.cal-turnover-diff{text-align:center;font-size:10px;font-weight:750;margin-top:2px}.pain-pill{display:block;width:max-content;max-width:100%;margin:6px auto 0;padding:2px 7px;border-radius:999px;font-size:10px;font-weight:850;background:rgba(255,255,255,.74);color:#536070}.pain-pill.mild{color:#66727f}.pain-pill.wide{color:#16814b}.pain-pill.loss{color:#08713c}.pain-pill.ice{background:#0e7b49;color:#fff}.pain-pill.extreme{background:#075332;color:#fff}.pain-stats{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;margin-top:5px;font-size:9px;font-weight:800;color:#16633c}.pain-stats .missing{color:#8b949e;font-weight:700}.pain-bar{display:flex;height:5px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,.65);margin-top:5px}.pain-bar span{display:block}.pain-bar .limitdown{background:#075332}.pain-bar .deepfall{background:#18a05b}.pain-bar .normalfall{background:#9fd9b8}.cal-counts{display:flex;justify-content:space-between;font-size:9px;color:#6f7783;margin-top:8px}.breadth-bar{display:flex;height:7px;border-radius:99px;overflow:hidden;background:#e4e7eb;margin-top:3px}.breadth-bar .rise{background:var(--red)}.breadth-bar .fall{background:var(--green)}.off-text{font-size:12px;font-weight:700;color:#c4c8ce;margin-top:10px}
+    .cal-day.heat-weak{background:#fff8f1;border-color:#f3d9bf}.cal-day.heat-repair{background:#fff0f1;border-color:#f1c8cc}.cal-day.heat-broad{background:#ffe2e5;border-color:#eda6ae}.cal-day.heat-strong{background:#ffcdd3;border-color:#e87b87}.cal-day.heat-squeeze{background:#ffadb8;border-color:#d94b5c;color:#4f060d}.cal-day.heat-climax{background:#ff8e9d;border-color:#bd2333;color:#49040a}.cal-day.heat-squeeze::before,.cal-day.heat-climax::before{opacity:.16;background:radial-gradient(circle at 18% 20%,rgba(255,255,255,.85),transparent 24%),linear-gradient(135deg,transparent 0 48%,rgba(160,0,18,.22) 49% 51%,transparent 52%)}.heat-squeeze .cal-index,.heat-climax .cal-index{color:#64131b}.heat-weak .pain-stats,.heat-repair .pain-stats,.heat-broad .pain-stats,.heat-strong .pain-stats,.heat-squeeze .pain-stats,.heat-climax .pain-stats{color:#8e2732}.pain-pill.weak{color:#a35b15}.pain-pill.repair{color:#c51020}.pain-pill.broad{background:#fff;color:#d31525}.pain-pill.strong{background:#e60012;color:#fff}.pain-pill.squeeze{background:#a40010;color:#fff}.pain-pill.climax{background:#5a0008;color:#fff}
     footer{text-align:center;padding:24px 4px 6px;color:#9aa1ab;font-size:10px;line-height:1.8}
     @media(max-width:820px){.index-grid{grid-template-columns:repeat(2,1fr)}.cn-index-grid{grid-template-columns:repeat(2,1fr)}.panorama-stats{grid-template-columns:repeat(3,1fr)}.lb-feature-grid{grid-template-columns:1fr}.lb-ladder-grid{grid-template-columns:1fr}.flow-grid{grid-template-columns:repeat(2,1fr)}.strategy-grid,.signal-bottom{grid-template-columns:1fr}}
     @media(max-width:520px){.wrap{padding:10px}.hero{padding:21px 18px}.hero-top{display:block}.badge{display:inline-block;margin-top:10px}.cn-index-grid{grid-template-columns:1fr 1fr}.panorama-stats{grid-template-columns:repeat(2,1fr)}.panorama-panels{grid-template-columns:1fr}.lb-summary{grid-template-columns:repeat(2,1fr)}.flow-grid{grid-template-columns:1fr}.section{padding:16px 14px}.title{align-items:flex-start;flex-direction:column}.index-grid{grid-template-columns:1fr 1fr}}
@@ -34,8 +35,8 @@
 <body>
 <main class="wrap">
   <header class="hero">
-    <div class="hero-top"><div><div class="eyebrow">A-SHARE MARKET REVIEW</div><h1>A股当日复盘看板</h1><div class="sub">2026年7月20日 · 数据采集于 17:07:49</div></div><span class="badge">收盘数据</span></div>
-    <div class="notice">今日行情已收盘。成交额、涨跌家数、指数结构及榜单均按收盘数据展示。</div>
+    <div class="hero-top"><div><div class="eyebrow">A-SHARE MARKET REVIEW</div><h1>A股当日复盘看板</h1><div class="sub">2026年7月21日 · 数据采集于 13:00:26</div></div><span class="badge">盘中快照</span></div>
+    <div class="notice">当前尚未收盘。成交额为盘中累计值，与上一交易日全天值的比较仅为暂时结果，最终放量/缩量结论应以收盘后刷新为准。</div>
   </header>
 
   <section class="section">
@@ -44,37 +45,37 @@
   </section>
 
   <section class="section">
-    <div class="title"><h2>📊 大盘全景</h2><span class="hint">财联社全市场统计口径 · 收盘数据</span></div>
+    <div class="title"><h2>📊 大盘全景</h2><span class="hint">财联社全市场统计口径 · 盘中快照</span></div>
     <div class="cn-index-grid">
-      <div class="cn-index-card up-card"><div class="cn-index-name">上证指数</div><div class="cn-index-price up">3796.28</div><div class="cn-index-change up">+0.85%</div><div class="cn-index-status">收盘</div></div>
-      <div class="cn-index-card down-card"><div class="cn-index-name">深证成指</div><div class="cn-index-price down">13610.23</div><div class="cn-index-change down">-0.71%</div><div class="cn-index-status">收盘</div></div>
-      <div class="cn-index-card up-card"><div class="cn-index-name">创业板指</div><div class="cn-index-price up">3443.10</div><div class="cn-index-change up">+0.42%</div><div class="cn-index-status">收盘</div></div>
-      <div class="cn-index-card up-card"><div class="cn-index-name">科创50</div><div class="cn-index-price up">1718.69</div><div class="cn-index-change up">+0.19%</div><div class="cn-index-status">收盘</div></div>
+      <div class="cn-index-card up-card"><div class="cn-index-name">上证指数</div><div class="cn-index-price up">3826.85</div><div class="cn-index-change up">+0.81%</div><div class="cn-index-status">盘中</div></div>
+      <div class="cn-index-card up-card"><div class="cn-index-name">深证成指</div><div class="cn-index-price up">14128.22</div><div class="cn-index-change up">+3.81%</div><div class="cn-index-status">盘中</div></div>
+      <div class="cn-index-card up-card"><div class="cn-index-name">创业板指</div><div class="cn-index-price up">3639.40</div><div class="cn-index-change up">+5.70%</div><div class="cn-index-status">盘中</div></div>
+      <div class="cn-index-card up-card"><div class="cn-index-name">科创50</div><div class="cn-index-price up">1848.14</div><div class="cn-index-change up">+7.53%</div><div class="cn-index-status">盘中</div></div>
     </div>
     <div class="panorama-stats">
-      <div class="panorama-stat limit-up"><b>54</b><span>涨停家数</span></div>
-      <div class="panorama-stat rise"><b>1,709</b><span>上涨家数</span></div>
-      <div class="panorama-stat fall"><b>3,415</b><span>下跌家数</span></div>
-      <div class="panorama-stat limit-down"><b>236</b><span>跌停家数</span></div>
-      <div class="panorama-stat broken" title="炸板38家，涨停53家"><b>41.8%</b><span>炸板率</span></div>
+      <div class="panorama-stat limit-up"><b>46</b><span>涨停家数</span></div>
+      <div class="panorama-stat rise"><b>2,518</b><span>上涨家数</span></div>
+      <div class="panorama-stat fall"><b>2,566</b><span>下跌家数</span></div>
+      <div class="panorama-stat limit-down"><b>23</b><span>跌停家数</span></div>
+      <div class="panorama-stat broken" title="炸板3家，涨停51家"><b>5.6%</b><span>炸板率</span></div>
     </div>
     <div class="panorama-panels">
       <article class="panorama-panel">
         <h3>📊 量价对比</h3>
-        <div class="panorama-row"><span>今日沪深市场成交额</span><strong>2.70万亿</strong></div>
-        <div class="panorama-row"><span>上一交易日</span><strong>2.65万亿</strong></div>
-        <div class="panorama-row"><span>量比判断</span><strong class="up">放量（+0.05万亿）</strong></div>
-        <div class="panorama-row"><span>涨跌结构</span><strong>上涨1709 / 下跌3415</strong></div>
+        <div class="panorama-row"><span>今日沪深市场成交额</span><strong>2.02万亿</strong></div>
+        <div class="panorama-row"><span>上一交易日</span><strong>2.70万亿</strong></div>
+        <div class="panorama-row"><span>量比判断</span><strong class="down">盘中暂缩量（-0.68万亿）</strong></div>
+        <div class="panorama-row"><span>涨跌结构</span><strong>上涨2518 / 下跌2566</strong></div>
       </article>
       <article class="panorama-panel">
         <h3>📈 今日结构</h3>
-        <div class="panorama-row"><span>开盘价</span><strong>3791.66</strong></div>
-        <div class="panorama-row"><span>最高价</span><strong>3831.66</strong></div>
-        <div class="panorama-row"><span>最低价</span><strong>3741.11</strong></div>
-        <div class="panorama-row"><span>当前点位</span><strong>3796.28</strong></div>
+        <div class="panorama-row"><span>开盘价</span><strong>3812.16</strong></div>
+        <div class="panorama-row"><span>最高价</span><strong>3826.85</strong></div>
+        <div class="panorama-row"><span>最低价</span><strong>3743.36</strong></div>
+        <div class="panorama-row"><span>当前点位</span><strong>3826.85</strong></div>
       </article>
     </div>
-    <div class="panorama-note">炸板率按东方财富口径：炸板38 家 ÷（封板53 家 + 炸板38 家）计算；涨停家数卡采用财联社全市场口径。</div>
+    <div class="panorama-note">炸板率按东方财富口径：炸板3 家 ÷（封板51 家 + 炸板3 家）计算；涨停家数卡采用财联社全市场口径。</div>
   </section>
 
   <section class="section" id="limitBoardSection">
@@ -108,12 +109,12 @@
   </section>
 
   <section class="section">
-    <div class="title"><h2>历史成交额</h2><span class="hint">最近5个日历周 · 指数为上证指数 · 最近交易日为收盘数据</span></div>
+    <div class="title"><h2>历史成交额</h2><span class="hint">最近5个日历周 · 指数为上证指数 · 当前交易日为盘中数据</span></div>
     <div class="calendar-scroll"><div class="calendar-shell">
       <div class="weekday-row"><div class="weekday">周日</div><div class="weekday">周一</div><div class="weekday">周二</div><div class="weekday">周三</div><div class="weekday">周四</div><div class="weekday">周五</div><div class="weekday">周六</div></div>
       <div class="history-calendar" id="historyCalendar"></div>
     </div></div>
-    <div class="method">每格依次显示日期、上证指数点位与涨跌幅、沪深两市成交额。底部红色代表上涨家数，绿色代表下跌家数，条形长度按两者占比计算；平盘家数不计入比例。</div>
+    <div class="method">每格依次显示日期、上证指数点位与涨跌幅、沪深两市成交额。底部第一条红绿条表示上涨/下跌家数；新增“市场体感”标签、跌停与跌幅超过5%家数、深跌压力条。上涨日按弱修复、修复、普涨、强修复、逼空、高潮分层；下跌杀伤力越强，卡片绿色越深。旧历史若未留存深跌数据则显示“--”。</div>
   </section>
 
   <footer>数据来源：财联社、东方财富、开盘红公开行情接口 · 数据可能存在延迟，仅供研究与复盘，不构成投资建议。</footer>
@@ -122,274 +123,274 @@
 const indices=[
     {
         "name":  "道指",
-        "price":  52146.42,
-        "change":  -0.77,
+        "price":  51839.26,
+        "change":  -0.59,
         "status":  "隔夜收盘"
     },
     {
         "name":  "标普500",
-        "price":  7457.69,
-        "change":  -1.01,
+        "price":  7443.28,
+        "change":  -0.19,
         "status":  "隔夜收盘"
     },
     {
         "name":  "纳指",
-        "price":  25520.24,
-        "change":  -1.4,
+        "price":  25508.07,
+        "change":  -0.05,
         "status":  "隔夜收盘"
     },
     {
         "name":  "日经225",
-        "price":  64141.12,
-        "change":  -4.03,
+        "price":  65872.54,
+        "change":  2.7,
         "status":  "实时收盘"
     },
     {
         "name":  "KOSPI",
-        "price":  6516.27,
-        "change":  -4.46,
+        "price":  6779.43,
+        "change":  4.04,
         "status":  "实时收盘"
     }
 ];
 const industries=[
     {
-        "name":  "油气开采及服务",
+        "name":  "半导体",
         "type":  "行业",
-        "code":  "ths881107",
-        "change":  7.14,
-        "turnover":  134.76,
-        "flow":  10.25,
-        "leader":  "科力股份",
-        "leaderCode":  "920088.BJ",
-        "leaderChange":  23.57,
+        "code":  "ths881121",
+        "change":  6.9,
+        "turnover":  3533.36,
+        "flow":  189.21,
+        "leader":  "康美特",
+        "leaderCode":  "920189.BJ",
+        "leaderChange":  21.49,
+        "leader2":  "格科微",
+        "leader2Code":  "sh688728",
+        "leader2Change":  20.03
+    },
+    {
+        "name":  "电子化学品",
+        "type":  "行业",
+        "code":  "ths881172",
+        "change":  5.81,
+        "turnover":  429.73,
+        "flow":  23.69,
+        "leader":  "国瓷材料",
+        "leaderCode":  "sz300285",
+        "leaderChange":  19.99,
+        "leader2":  "菲沃泰",
+        "leader2Code":  "sh688371",
+        "leader2Change":  16.27
+    },
+    {
+        "name":  "元件",
+        "type":  "行业",
+        "code":  "ths881270",
+        "change":  4.65,
+        "turnover":  1057.59,
+        "flow":  56.7,
+        "leader":  "康美特",
+        "leaderCode":  "920189.BJ",
+        "leaderChange":  21.49,
+        "leader2":  "格科微",
+        "leader2Code":  "sh688728",
+        "leader2Change":  20.03
+    },
+    {
+        "name":  "其他电子",
+        "type":  "行业",
+        "code":  "ths881123",
+        "change":  3.92,
+        "turnover":  175.33,
+        "flow":  10.76,
+        "leader":  "康美特",
+        "leaderCode":  "920189.BJ",
+        "leaderChange":  21.49,
+        "leader2":  "格科微",
+        "leader2Code":  "sh688728",
+        "leader2Change":  20.03
+    },
+    {
+        "name":  "能源金属",
+        "type":  "行业",
+        "code":  "ths881267",
+        "change":  3.73,
+        "turnover":  128.32,
+        "flow":  9.57,
+        "leader":  "华友钴业",
+        "leaderCode":  "sh603799",
+        "leaderChange":  8.09,
+        "leader2":  "腾远钴业",
+        "leader2Code":  "sz301219",
+        "leader2Change":  7.03
+    },
+    {
+        "name":  "小金属",
+        "type":  "行业",
+        "code":  "ths881170",
+        "change":  3.28,
+        "turnover":  282.92,
+        "flow":  19.07,
+        "leader":  "长裕集团",
+        "leaderCode":  "sh603407",
+        "leaderChange":  10.01,
+        "leader2":  "东方锆业",
+        "leader2Code":  "sz002167",
+        "leader2Change":  9.99
+    },
+    {
+        "name":  "电池",
+        "type":  "行业",
+        "code":  "ths881281",
+        "change":  3.04,
+        "turnover":  574.68,
+        "flow":  55.6,
+        "leader":  "扬电科技",
+        "leaderCode":  "sz301012",
+        "leaderChange":  20.02,
+        "leader2":  "鑫宏业",
+        "leader2Code":  "sz301310",
+        "leader2Change":  20
+    },
+    {
+        "name":  "贵金属",
+        "type":  "行业",
+        "code":  "ths881169",
+        "change":  3,
+        "turnover":  150.04,
+        "flow":  6.44,
+        "leader":  "兴业银锡",
+        "leaderCode":  "sz000426",
+        "leaderChange":  5.83,
+        "leader2":  "晓程科技",
+        "leader2Code":  "sz300139",
+        "leader2Change":  5.01
+    },
+    {
+        "name":  "金属新材料",
+        "type":  "行业",
+        "code":  "ths881114",
+        "change":  2.97,
+        "turnover":  75.4,
+        "flow":  6.22,
+        "leader":  "新莱福",
+        "leaderCode":  "sz301323",
+        "leaderChange":  10.69,
         "leader2":  "--",
         "leader2Code":  "--",
         "leader2Change":  0
     },
     {
-        "name":  "煤炭开采加工",
+        "name":  "自动化设备",
         "type":  "行业",
-        "code":  "ths881105",
-        "change":  5.3,
-        "turnover":  177.76,
-        "flow":  14.29,
-        "leader":  "淮北矿业",
-        "leaderCode":  "sh600985",
-        "leaderChange":  10,
-        "leader2":  "--",
-        "leader2Code":  "--",
-        "leader2Change":  0
+        "code":  "ths881171",
+        "change":  2.82,
+        "turnover":  427.17,
+        "flow":  29.64,
+        "leader":  "瑞晨环保",
+        "leaderCode":  "sz301273",
+        "leaderChange":  20,
+        "leader2":  "正帆科技",
+        "leader2Code":  "sh688596",
+        "leader2Change":  20
     },
     {
-        "name":  "电力",
+        "name":  "通信设备",
         "type":  "行业",
-        "code":  "ths881145",
-        "change":  4.8,
-        "turnover":  777.83,
-        "flow":  83.96,
-        "leader":  "九洲集团",
-        "leaderCode":  "sz300040",
-        "leaderChange":  18.17,
-        "leader2":  "--",
-        "leader2Code":  "--",
-        "leader2Change":  0
+        "code":  "ths881129",
+        "change":  2.76,
+        "turnover":  1628.42,
+        "flow":  102.16,
+        "leader":  "线上线下",
+        "leaderCode":  "sz300959",
+        "leaderChange":  11.01,
+        "leader2":  "中际旭创",
+        "leader2Code":  "sz300308",
+        "leader2Change":  10.86
     },
     {
-        "name":  "保险",
+        "name":  "光学光电子",
         "type":  "行业",
-        "code":  "ths881156",
-        "change":  4.51,
-        "turnover":  179.38,
-        "flow":  35.44,
-        "leader":  "中国太保",
-        "leaderCode":  "sh601601",
-        "leaderChange":  6.32,
-        "leader2":  "--",
-        "leader2Code":  "--",
-        "leader2Change":  0
+        "code":  "ths881122",
+        "change":  2.67,
+        "turnover":  493.96,
+        "flow":  44.94,
+        "leader":  "波长光电",
+        "leaderCode":  "sz301421",
+        "leaderChange":  18.74,
+        "leader2":  "蓝特光学",
+        "leader2Code":  "sh688127",
+        "leader2Change":  11.96
     },
     {
-        "name":  "白酒",
-        "type":  "行业",
-        "code":  "ths881273",
-        "change":  3.79,
-        "turnover":  285.06,
-        "flow":  37.47,
-        "leader":  "古井贡酒",
-        "leaderCode":  "sz000596",
-        "leaderChange":  10,
-        "leader2":  "--",
-        "leader2Code":  "--",
-        "leader2Change":  0
-    },
-    {
-        "name":  "银行",
-        "type":  "行业",
-        "code":  "ths881155",
-        "change":  2.02,
-        "turnover":  455.99,
-        "flow":  86.15,
-        "leader":  "厦门银行",
-        "leaderCode":  "sh601187",
-        "leaderChange":  6.82,
-        "leader2":  "重庆银行",
-        "leader2Code":  "sh601963",
-        "leader2Change":  4.46
-    },
-    {
-        "name":  "证券",
-        "type":  "行业",
-        "code":  "ths881157",
-        "change":  1.68,
-        "turnover":  453.97,
-        "flow":  29.38,
-        "leader":  "广发证券",
-        "leaderCode":  "sz000776",
-        "leaderChange":  5.19,
-        "leader2":  "湘财股份",
-        "leader2Code":  "sh600095",
-        "leader2Change":  4.95
-    },
-    {
-        "name":  "汽车整车",
-        "type":  "行业",
-        "code":  "ths881125",
-        "change":  1.61,
-        "turnover":  127.08,
-        "flow":  5.33,
-        "leader":  "宇通客车",
-        "leaderCode":  "sh600066",
-        "leaderChange":  7.83,
-        "leader2":  "春风动力",
-        "leader2Code":  "sh603129",
-        "leader2Change":  6.77
-    },
-    {
-        "name":  "石油加工贸易",
-        "type":  "行业",
-        "code":  "ths881180",
-        "change":  1.32,
-        "turnover":  123.31,
-        "flow":  11.84,
-        "leader":  "宝利国际",
-        "leaderCode":  "sz300135",
-        "leaderChange":  13.4,
-        "leader2":  "--",
-        "leader2Code":  "--",
-        "leader2Change":  0
-    },
-    {
-        "name":  "港口航运",
-        "type":  "行业",
-        "code":  "ths881148",
-        "change":  0.9,
-        "turnover":  115.54,
-        "flow":  6.92,
-        "leader":  "中远海特",
-        "leaderCode":  "sh600428",
-        "leaderChange":  5.78,
-        "leader2":  "--",
-        "leader2Code":  "--",
-        "leader2Change":  0
-    },
-    {
-        "name":  "机场航运",
-        "type":  "行业",
-        "code":  "ths881151",
-        "change":  0.87,
-        "turnover":  37.37,
-        "flow":  0.9,
-        "leader":  "中信海直",
-        "leaderCode":  "sz000099",
-        "leaderChange":  1.94,
-        "leader2":  "--",
-        "leader2Code":  "--",
-        "leader2Change":  0
-    },
-    {
-        "name":  "公路铁路运输",
-        "type":  "行业",
-        "code":  "ths881149",
-        "change":  0.84,
-        "turnover":  53.42,
-        "flow":  5.57,
-        "leader":  "皖通高速",
-        "leaderCode":  "sh600012",
-        "leaderChange":  8.87,
-        "leader2":  "--",
-        "leader2Code":  "--",
-        "leader2Change":  0
-    },
-    {
-        "name":  "天然气",
+        "name":  "英伟达概念",
         "type":  "概念",
-        "code":  "cls80030",
-        "change":  1.25,
-        "turnover":  390.81,
-        "flow":  10.06,
-        "heat":  96.57,
-        "leader":  "潜能恒信",
-        "leaderCode":  "sz300191",
-        "leaderChange":  11.68,
-        "leader2":  "凯添燃气",
-        "leader2Code":  "920010.BJ",
-        "leader2Change":  10.51
+        "code":  "cls82058",
+        "change":  3.94,
+        "turnover":  823.6,
+        "flow":  20.83,
+        "heat":  94.51,
+        "leader":  "罗博特科",
+        "leaderCode":  "sz300757",
+        "leaderChange":  14.76,
+        "leader2":  "扬杰科技",
+        "leader2Code":  "sz300373",
+        "leader2Change":  12.76
     },
     {
-        "name":  "水电",
+        "name":  "陶瓷产业",
         "type":  "概念",
-        "code":  "cls80522",
-        "change":  4.57,
-        "turnover":  268.25,
-        "flow":  1.9,
-        "heat":  95.56,
-        "leader":  "乐山电力",
-        "leaderCode":  "sh600644",
-        "leaderChange":  9.99,
-        "leader2":  "桂冠电力",
-        "leader2Code":  "sh600236",
-        "leader2Change":  9.98
+        "code":  "cls80431",
+        "change":  4.43,
+        "turnover":  271.27,
+        "flow":  12.88,
+        "heat":  94.5,
+        "leader":  "国瓷材料",
+        "leaderCode":  "sz300285",
+        "leaderChange":  19.99,
+        "leader2":  "三环集团",
+        "leader2Code":  "sz300408",
+        "leader2Change":  17.31
     },
     {
-        "name":  "国资云",
+        "name":  "华为产业链",
         "type":  "概念",
-        "code":  "cls80621",
-        "change":  0.7,
-        "turnover":  342.04,
-        "flow":  9.01,
-        "heat":  94.59,
-        "leader":  "杭钢股份",
-        "leaderCode":  "sh600126",
-        "leaderChange":  10.07,
-        "leader2":  "浪潮软件",
-        "leader2Code":  "sh600756",
-        "leader2Change":  10.02
+        "code":  "cls80405",
+        "change":  1.83,
+        "turnover":  4744.48,
+        "flow":  34.16,
+        "heat":  90.75,
+        "leader":  "杰华特",
+        "leaderCode":  "sh688141",
+        "leaderChange":  20,
+        "leader2":  "强一股份",
+        "leader2Code":  "sh688809",
+        "leader2Change":  20
     }
 ];
 const flows=[
     {
         "name":  "科技板块",
-        "flow":  -319.3
+        "flow":  66.4
     },
     {
         "name":  "消费板块",
-        "flow":  -72.08
+        "flow":  -40.59
     },
     {
         "name":  "周期板块",
-        "flow":  -128.93
+        "flow":  -37.03
     },
     {
         "name":  "金融板块",
-        "flow":  -10.74
+        "flow":  -32.37
     },
     {
         "name":  "医药板块",
-        "flow":  -55.19
+        "flow":  -26.15
     },
     {
         "name":  "公用事业",
-        "flow":  -7.12
+        "flow":  -4.89
     }
 ];
 const limitBoardData={
@@ -399,18 +400,18 @@ const limitBoardData={
                          "note":  "当前仍封板，按首次封板时间排序",
                          "stocks":  [
                                         {
-                                            "name":  "美利云",
-                                            "code":  "000815",
-                                            "change":  9.98,
-                                            "meta":  "首封 09:25:00 · 封单 1.79亿",
-                                            "theme":  "算力、国资云"
+                                            "name":  "立新能源",
+                                            "code":  "001258",
+                                            "change":  10,
+                                            "meta":  "首封 09:25:00 · 封单 0.00亿",
+                                            "theme":  "电力"
                                         },
                                         {
-                                            "name":  "传艺科技",
-                                            "code":  "002866",
-                                            "change":  10,
-                                            "meta":  "首封 09:30:00 · 封单 0.58亿",
-                                            "theme":  "钠电池、消费电子"
+                                            "name":  "爱丽家居",
+                                            "code":  "603221",
+                                            "change":  10.04,
+                                            "meta":  "首封 09:25:01 · 封单 3.18亿",
+                                            "theme":  "家居用品"
                                         }
                                     ]
                      },
@@ -418,52 +419,52 @@ const limitBoardData={
                          "title":  "逆势抗跌",
                          "note":  "剔除涨停股，按相对强度、收盘位置、资金与振幅评分",
                          "stocks":  [
-                                        {
-                                            "name":  "科力股份",
-                                            "code":  "920088",
-                                            "change":  23.57,
-                                            "meta":  "抗跌分 15.91 · 主力 +11.4%",
-                                            "theme":  "相对强势"
-                                        },
-                                        {
-                                            "name":  "立方控股",
-                                            "code":  "920130",
-                                            "change":  21.03,
-                                            "meta":  "抗跌分 13.80 · 主力 +4.6%",
-                                            "theme":  "相对强势"
-                                        }
+
                                     ]
                      },
                      {
                          "title":  "断板修复",
                          "note":  "前期至少二连板，昨日断板，今日重新走强",
                          "stocks":  [
-
+                                        {
+                                            "name":  "智度股份",
+                                            "code":  "000676",
+                                            "change":  9.31,
+                                            "meta":  "前期 3连板 · 昨日断板 · 今日修复",
+                                            "theme":  "广告营销"
+                                        },
+                                        {
+                                            "name":  "星网宇达",
+                                            "code":  "002829",
+                                            "change":  4.9,
+                                            "meta":  "前期 2连板 · 昨日断板 · 今日修复",
+                                            "theme":  "航天装备"
+                                        }
                                     ]
                      }
                  ],
     "summary":  [
                     {
                         "name":  "一板",
-                        "count":  46,
+                        "count":  47,
                         "rateLabel":  "一进二",
-                        "rate":  "25%"
+                        "rate":  "7%"
                     },
                     {
                         "name":  "二板",
-                        "count":  6,
+                        "count":  3,
                         "rateLabel":  "二进三",
-                        "rate":  "25%"
-                    },
-                    {
-                        "name":  "三板",
-                        "count":  1,
-                        "rateLabel":  "三进更高",
                         "rate":  "0%"
                     },
                     {
-                        "name":  "高度板",
+                        "name":  "三板",
                         "count":  0,
+                        "rateLabel":  "三进更高",
+                        "rate":  "100%"
+                    },
+                    {
+                        "name":  "高度板",
+                        "count":  1,
                         "rateLabel":  "高度观察",
                         "rate":  "--"
                     }
@@ -473,464 +474,474 @@ const limitBoardData={
                         "name":  "一板",
                         "stocks":  [
                                        {
-                                           "name":  "美利云",
-                                           "code":  "000815",
+                                           "name":  "爱丽家居",
+                                           "code":  "603221",
                                            "boards":  1,
-                                           "firstTime":  "09:25:00",
-                                           "lastTime":  "09:25:00",
-                                           "theme":  "算力、国资云",
-                                           "reason":  "算力",
-                                           "sealAmount":  179245470
+                                           "firstTime":  "09:25:01",
+                                           "lastTime":  "09:25:01",
+                                           "theme":  "家居用品",
+                                           "reason":  "并购重组+半导体|爱丽家居公告称，公司拟筹划以自有和自筹现金方式收购不低于武汉欧康诺电子科技股份有限公司（简称“欧康诺”或“目标公司”）股权总数的77.08%的股权，欧康诺100%股权的整体估值不超过人民币6.5亿元；收购完成后，欧康诺将成为公司控股子公司。本次交易构成关联交易，预计不构成重大资产重组。目标公司专注于存储测试设备及测试服务领域。",
+                                           "sealAmount":  317720832
                                        },
                                        {
-                                           "name":  "三德科技",
-                                           "code":  "300515",
+                                           "name":  "长缆科技",
+                                           "code":  "002879",
                                            "boards":  1,
                                            "firstTime":  "09:30:00",
                                            "lastTime":  "09:30:00",
-                                           "theme":  "机器人概念、煤炭",
-                                           "reason":  "中报增长",
-                                           "sealAmount":  40604727
+                                           "theme":  "电网设备",
+                                           "reason":  "增持回购|长缆科技公告，公司拟1.8亿元至2.2亿元回购股份，用于维护公司价值及股东权益，回购价格不超过20.50元/股。此外，公司董事长俞涛计划6个月内增持公司股份，增持金额不低于3000万元。",
+                                           "sealAmount":  100409576
                                        },
                                        {
-                                           "name":  "传艺科技",
-                                           "code":  "002866",
+                                           "name":  "东方锆业",
+                                           "code":  "002167",
                                            "boards":  1,
                                            "firstTime":  "09:30:00",
-                                           "lastTime":  "09:30:00",
-                                           "theme":  "钠电池、消费电子",
-                                           "reason":  "钠电池",
-                                           "sealAmount":  57673123
+                                           "lastTime":  "11:00:54",
+                                           "theme":  "小金属",
+                                           "reason":  "锆+稀土|1.全球锆产品品种最齐全的制造商之一，公司产品包括锆矿砂、硅酸锆、氯氧化锆、电熔锆、二氧化锆、复合氧化锆、氧化锆陶瓷结构件及海绵锆八大系列共一百多个品种规格。\n2.公司的稀土独居石为分选重矿物的副产品，公司参股的澳大利亚上市公司Image年产约30万吨重矿物，独居石占重矿物的1%-2.5%左右，据此估算，Image年产量为约3000吨至7500吨独居石。",
+                                           "sealAmount":  375005579
                                        },
                                        {
-                                           "name":  "山东墨龙",
-                                           "code":  "002490",
+                                           "name":  "长裕集团",
+                                           "code":  "603407",
                                            "boards":  1,
-                                           "firstTime":  "09:31:12",
-                                           "lastTime":  "10:21:21",
-                                           "theme":  "石油石化、碳中和",
-                                           "reason":  "石油石化",
-                                           "sealAmount":  48361560
+                                           "firstTime":  "09:30:47",
+                                           "lastTime":  "10:32:44",
+                                           "theme":  "化学原料",
+                                           "reason":  "锆+光通信|1.公司主要从事锆类产品、特种尼龙产品、精细化工产品的研发、生产和销售，主要产品包括氧氯化锆、碳酸锆、氧化锆、纳米复合氧化锆、特种尼龙、长碳链二元酸、长碳链二元醇及长碳链二甲酯等。\n2.公司纳米复合氧化锆产品可应用于光通讯器件，主要包括陶瓷插芯与陶瓷套管等。陶瓷套管与光纤陶瓷插芯广泛应用于光纤适配器、光收发模块接口端等光器件中，是光通信网络通畅的基础。",
+                                           "sealAmount":  139118465
                                        },
                                        {
-                                           "name":  "掌阅科技",
-                                           "code":  "603533",
+                                           "name":  "淳中科技",
+                                           "code":  "603516",
                                            "boards":  1,
-                                           "firstTime":  "09:31:37",
-                                           "lastTime":  "15:00:00",
-                                           "theme":  "Kimi概念、AI应用",
-                                           "reason":  "Kimi概念",
-                                           "sealAmount":  6918337
+                                           "firstTime":  "09:31:48",
+                                           "lastTime":  "11:08:48",
+                                           "theme":  "计算机设",
+                                           "reason":  "回购注销股份|淳中科技公告称，公司董事长何仕达提议公司通过集中竞价交易方式回购部分股份，回购资金总额不低于5000万元(含)，不超过1亿元(含)，回购股份将用于减少注册资本。回购价格上限不高于董事会审议通过回购方案前30个交易日股票交易均价的150%，回购期限自股东会审议通过之日起12个月内。",
+                                           "sealAmount":  275486857
                                        },
                                        {
-                                           "name":  "宝明科技",
-                                           "code":  "002992",
+                                           "name":  "扬电科技",
+                                           "code":  "301012",
                                            "boards":  1,
-                                           "firstTime":  "09:33:18",
-                                           "lastTime":  "09:33:18",
-                                           "theme":  "复合集流体、元宇宙",
-                                           "reason":  "复合集流体",
-                                           "sealAmount":  64672111
+                                           "firstTime":  "09:36:57",
+                                           "lastTime":  "10:33:57",
+                                           "theme":  "电网设备",
+                                           "reason":  "签署算力服务合同|扬电科技公告称，公司全资子公司四川汉扬智能科技有限公司与A客户签署《算力服务合同》，提供算力服务，服务期限60个月，含税总金额约8.60亿元，占公司2025年经审计营业收入的67.22%。",
+                                           "sealAmount":  207390665
                                        },
                                        {
-                                           "name":  "中嘉博创",
-                                           "code":  "000889",
+                                           "name":  "证通电子",
+                                           "code":  "002197",
                                            "boards":  1,
-                                           "firstTime":  "09:35:27",
-                                           "lastTime":  "09:35:27",
-                                           "theme":  "算力、通信",
-                                           "reason":  "算力",
-                                           "sealAmount":  85141028
+                                           "firstTime":  "09:37:57",
+                                           "lastTime":  "10:23:21",
+                                           "theme":  "计算机设",
+                                           "reason":  "金融科技+算力|1.公司在金融电子业务板块主要经营模式为客户提供包括软硬件产品以及服务的综合性解决方案。主要产品包括：自助服务终端、金融支付产品(含电话E-POS、金融POS、智能POS 、安全支付套件、彩票机\u0026身份核查仪、扫描终端等)、加密键盘、智能机器人等。\n2.公司垂直布局云服务产业链，深入理解政务、金融、制造等行业需求，基于公司自研AI训导一体化能力和产品应用场景。",
+                                           "sealAmount":  83942234
                                        },
                                        {
-                                           "name":  "金达莱",
-                                           "code":  "688057",
+                                           "name":  "京北方",
+                                           "code":  "002987",
                                            "boards":  1,
-                                           "firstTime":  "09:35:46",
-                                           "lastTime":  "09:35:46",
-                                           "theme":  "机器人概念、污水处理",
-                                           "reason":  "机器人概念",
-                                           "sealAmount":  19906956
+                                           "firstTime":  "09:39:57",
+                                           "lastTime":  "09:39:57",
+                                           "theme":  "软件开发",
+                                           "reason":  "金融科技+AI|1.公司是国内领先的金融外包服务提供商，主要向以银行为主的金融机构提供信息技术服务和业务流程外包服务，银行客户覆盖率达到95%以上。\n2.公司多年来在人工智能领域持续布局和投入，将已掌握的部分先进技术应用于智能推荐、智能合同审核、票证识别等领域，并形成了多项产品。",
+                                           "sealAmount":  87414104
                                        },
                                        {
-                                           "name":  "大有能源",
-                                           "code":  "600403",
+                                           "name":  "一拖股份",
+                                           "code":  "601038",
                                            "boards":  1,
-                                           "firstTime":  "09:37:48",
-                                           "lastTime":  "09:37:48",
-                                           "theme":  "煤炭、国有企业",
-                                           "reason":  "煤炭",
-                                           "sealAmount":  38106335
+                                           "firstTime":  "09:42:04",
+                                           "lastTime":  "10:17:22",
+                                           "theme":  "专用设备",
+                                           "reason":  "拖拉机|国内拖拉机行业龙头，拥有国内最完备的拖拉机制造体系，锻件、铸件、齿轮、柴油机、变速箱、覆盖件等关键零部件均由本公司自行生产。",
+                                           "sealAmount":  66286061
                                        },
                                        {
-                                           "name":  "杭钢股份",
-                                           "code":  "600126",
+                                           "name":  "神州信息",
+                                           "code":  "000555",
                                            "boards":  1,
-                                           "firstTime":  "09:38:51",
-                                           "lastTime":  "14:15:06",
-                                           "theme":  "算力、人工智能",
-                                           "reason":  "算力",
-                                           "sealAmount":  139750126
+                                           "firstTime":  "09:43:03",
+                                           "lastTime":  "09:45:39",
+                                           "theme":  "IT服务Ⅱ",
+                                           "reason":  "金融科技+AI|1.公司是国内领先的金融科技全产业链综合服务商，专门成立区块链研究院并已经掌握了区块链的核心技术。公司自主研发的智能区块链平台Sm@rtGAS，目前已领先市场推出了供应链金融、数字货币、数字钱包、区块链发票、对账清算、预付卡、积分通兑等系列产品。\n2.子公司华通云数据是火山引擎的HiAgent的合作伙伴，目前双方共同致力于HiAgent平台在教育和企业行业的应用推广。",
+                                           "sealAmount":  103361169
                                        },
                                        {
-                                           "name":  "汇金股份",
-                                           "code":  "300368",
+                                           "name":  "九安医疗",
+                                           "code":  "002432",
                                            "boards":  1,
-                                           "firstTime":  "09:39:09",
-                                           "lastTime":  "09:39:09",
-                                           "theme":  "金融科技、金融概念",
-                                           "reason":  "金融科技",
-                                           "sealAmount":  72808934
+                                           "firstTime":  "09:47:09",
+                                           "lastTime":  "10:19:03",
+                                           "theme":  "医疗器械",
+                                           "reason":  "业绩+参股kimi|1.公司预计2026年1-6月实现归母净利润为28亿元至34亿元，同比增长204.29%-269.5%。公司业绩增长的主要原因是在科创投资领域的布局收益显现，底层标的估值上涨对业绩产生积极影响。公司致力于实现资产保值增值，并持续提升风险抵御能力。\n2.公司持有月之暗面等独角兽股权。",
+                                           "sealAmount":  612601299
                                        },
                                        {
-                                           "name":  "中曼石油",
-                                           "code":  "603619",
+                                           "name":  "翠微股份",
+                                           "code":  "603123",
                                            "boards":  1,
-                                           "firstTime":  "09:39:21",
-                                           "lastTime":  "09:39:21",
-                                           "theme":  "石油石化、天然气",
-                                           "reason":  "石油石化",
-                                           "sealAmount":  87820363
+                                           "firstTime":  "09:54:31",
+                                           "lastTime":  "10:06:52",
+                                           "theme":  "多元金融",
+                                           "reason":  "金融科技+AI|1.全资子公司海科融通已积极参与央行数字货币研究所指定运营银行签署合作协议，进行系统对接，推进数字人民币受理的系统建设。\n2.子公司海科融通AI智能体已应用于商户资质审核、智能风控等核心业务环节，有效提升审核效率与风险识别能力。同时在商户及服务商APP中集成了智能分析经营数据的智能体，为合作伙伴提供数据驱动的决策支持。",
+                                           "sealAmount":  106926243
                                        },
                                        {
-                                           "name":  "威龙股份",
-                                           "code":  "603779",
+                                           "name":  "学大教育",
+                                           "code":  "000526",
                                            "boards":  1,
-                                           "firstTime":  "09:43:04",
-                                           "lastTime":  "10:06:37",
-                                           "theme":  "实控人变更、葡萄酒",
-                                           "reason":  "实控人变更",
-                                           "sealAmount":  59558688
+                                           "firstTime":  "09:59:21",
+                                           "lastTime":  "10:13:30",
+                                           "theme":  "教育",
+                                           "reason":  "AI+教育|公司的“星图”大模型是面向教育场景的AI模型，聚焦教学场景的深度融合与创新应用。该模型目前已接入国内领先的AI底座平台DeepSeek，能够快速构建各类轻量级教育应用服务。",
+                                           "sealAmount":  96695209
                                        },
                                        {
-                                           "name":  "浪潮软件",
-                                           "code":  "600756",
+                                           "name":  "共进股份",
+                                           "code":  "603118",
                                            "boards":  1,
-                                           "firstTime":  "09:43:38",
-                                           "lastTime":  "14:40:53",
-                                           "theme":  "AI政务、AI应用",
-                                           "reason":  "AI政务",
-                                           "sealAmount":  33527515
+                                           "firstTime":  "10:25:24",
+                                           "lastTime":  "10:25:24",
+                                           "theme":  "通信设备",
+                                           "reason":  "交换机|据2025年9月26日互动易，公司交换机已覆盖100G、400G、800G数据中心产品，800G型号按订单生产并供货国内交换机品牌商。",
+                                           "sealAmount":  336641863
                                        },
                                        {
-                                           "name":  "浙大网新",
-                                           "code":  "600797",
+                                           "name":  "北方华创",
+                                           "code":  "002371",
                                            "boards":  1,
-                                           "firstTime":  "09:43:58",
-                                           "lastTime":  "14:05:43",
-                                           "theme":  "算力、数字经济",
-                                           "reason":  "算力",
-                                           "sealAmount":  23496185
+                                           "firstTime":  "10:36:39",
+                                           "lastTime":  "10:46:57",
+                                           "theme":  "半导体",
+                                           "reason":  "半导体设备|公司为全球客户提供高端半导体装备，先后完成了12吋集成电路制造设备90-28nm等多个关键制程的攻关工作，产品包括刻蚀设备、PVD设备、CVD设备、氧化/扩散设备、清洗设备等。",
+                                           "sealAmount":  2909006258
                                        },
                                        {
-                                           "name":  "郑州煤电",
-                                           "code":  "600121",
+                                           "name":  "托伦斯",
+                                           "code":  "301583",
                                            "boards":  1,
-                                           "firstTime":  "09:48:48",
-                                           "lastTime":  "09:50:09",
-                                           "theme":  "煤炭、算力",
-                                           "reason":  "煤炭",
-                                           "sealAmount":  47302819
+                                           "firstTime":  "10:38:30",
+                                           "lastTime":  "10:38:30",
+                                           "theme":  "半导体",
+                                           "reason":  "半导体设备|托伦斯是国内领先的精密金属零部件综合服务商，专注于半导体设备关键工艺零部件的研发、生产和销售，产品覆盖薄膜沉积、刻蚀设备等核心半导体设备，包括腔体、内衬、加热器、匀气盘、静电卡盘基体等关键零部件。",
+                                           "sealAmount":  495254976
                                        },
                                        {
-                                           "name":  "涪陵电力",
-                                           "code":  "600452",
+                                           "name":  "汇得科技",
+                                           "code":  "603192",
                                            "boards":  1,
-                                           "firstTime":  "09:50:00",
-                                           "lastTime":  "14:02:06",
-                                           "theme":  "电力、央企",
-                                           "reason":  "电力",
-                                           "sealAmount":  29759000
+                                           "firstTime":  "10:52:46",
+                                           "lastTime":  "10:53:31",
+                                           "theme":  "化学制品",
+                                           "reason":  "聚氨酯树脂|公司主营业务为聚氨酯树脂产品的研发、生产、销售与技术服务，主要产品为合成革用聚氨酯（PU）、聚氨酯弹性体原液和聚酯多元醇。",
+                                           "sealAmount":  64805345
                                        },
                                        {
-                                           "name":  "海正药业",
-                                           "code":  "600267",
+                                           "name":  "臻宝科技",
+                                           "code":  "688797",
                                            "boards":  1,
-                                           "firstTime":  "09:53:52",
-                                           "lastTime":  "14:53:01",
-                                           "theme":  "创新药、中报增长",
-                                           "reason":  "创新药",
-                                           "sealAmount":  4089576
+                                           "firstTime":  "10:56:07",
+                                           "lastTime":  "10:56:07",
+                                           "theme":  "半导体",
+                                           "reason":  "",
+                                           "sealAmount":  678381185
                                        },
                                        {
-                                           "name":  "古井贡酒",
-                                           "code":  "000596",
+                                           "name":  "瑞晨环保",
+                                           "code":  "301273",
                                            "boards":  1,
-                                           "firstTime":  "09:54:45",
-                                           "lastTime":  "14:01:33",
-                                           "theme":  "白酒、酿酒",
-                                           "reason":  "白酒",
-                                           "sealAmount":  30654261
+                                           "firstTime":  "10:56:30",
+                                           "lastTime":  "10:56:30",
+                                           "theme":  "通用设备",
+                                           "reason":  "",
+                                           "sealAmount":  93062719
                                        },
                                        {
-                                           "name":  "华电能源",
-                                           "code":  "600726",
+                                           "name":  "利通电子",
+                                           "code":  "603629",
                                            "boards":  1,
-                                           "firstTime":  "09:55:28",
-                                           "lastTime":  "09:55:28",
-                                           "theme":  "绿色电力、电力",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  155736784
+                                           "firstTime":  "10:59:08",
+                                           "lastTime":  "10:59:08",
+                                           "theme":  "消费电子",
+                                           "reason":  "算力租赁|公司AI算力业务主要是以云交付方式为客户提供AI算力产品，具体业务形态包括AI设备经销、算力优化、并机集群、算力云输出与持续运维支持与技术服务。公司2025年中报披露，可调度的算力资源用于客户算力云服务的规模逾29000P。",
+                                           "sealAmount":  440241027
                                        },
                                        {
-                                           "name":  "金开新能",
-                                           "code":  "600821",
+                                           "name":  "新洁能",
+                                           "code":  "605111",
                                            "boards":  1,
-                                           "firstTime":  "09:55:35",
-                                           "lastTime":  "09:57:05",
-                                           "theme":  "绿色电力、算力",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  95117568
+                                           "firstTime":  "10:59:13",
+                                           "lastTime":  "10:59:13",
+                                           "theme":  "半导体",
+                                           "reason":  "功率半导体|公司是国内最早同时拥有沟槽型功率MOSFET、超结功率MOSFET、屏蔽栅功率MOSFET及IGBT四大产品平台的本土企业之一。公司产品目前已经进入多家光伏客户。",
+                                           "sealAmount":  169465950
                                        },
                                        {
-                                           "name":  "运机集团",
-                                           "code":  "001288",
+                                           "name":  "顺络电子",
+                                           "code":  "002138",
                                            "boards":  1,
-                                           "firstTime":  "09:57:54",
-                                           "lastTime":  "14:48:39",
-                                           "theme":  "机器人概念、新型工业化",
-                                           "reason":  "机器人概念",
-                                           "sealAmount":  3174454
+                                           "firstTime":  "11:01:33",
+                                           "lastTime":  "11:01:33",
+                                           "theme":  "元件",
+                                           "reason":  "电感|一体成型电感是公司级重点开发的产品项目，已布局多种产品类别的布局，包括各类大尺寸、小尺寸型号、WTX的一体成型电感产品及超薄磁铜共烧等功率电感产品。",
+                                           "sealAmount":  394134632
                                        },
                                        {
-                                           "name":  "晋控电力",
-                                           "code":  "000767",
+                                           "name":  "金海通",
+                                           "code":  "603061",
                                            "boards":  1,
-                                           "firstTime":  "10:02:30",
-                                           "lastTime":  "14:02:45",
-                                           "theme":  "火电、电力",
-                                           "reason":  "火电",
-                                           "sealAmount":  50597650
+                                           "firstTime":  "11:02:18",
+                                           "lastTime":  "11:02:18",
+                                           "theme":  "半导体",
+                                           "reason":  "半导体设备|公司是一家从事研发、生产并销售半导体芯片测试设备的高新技术企业，深耕集成电路测试分选机（Test handler）领域，其UPH（单位小时产出）最大可达到13500颗，可测试芯片尺寸范围可涵盖2*2mm~100*100mm。",
+                                           "sealAmount":  395108758
                                        },
                                        {
-                                           "name":  "联创电子",
-                                           "code":  "002036",
+                                           "name":  "国瓷材料",
+                                           "code":  "300285",
                                            "boards":  1,
-                                           "firstTime":  "10:03:06",
-                                           "lastTime":  "10:03:06",
-                                           "theme":  "光模块、通信",
-                                           "reason":  "光模块",
-                                           "sealAmount":  65849586
+                                           "firstTime":  "11:03:00",
+                                           "lastTime":  "11:03:00",
+                                           "theme":  "电子化学",
+                                           "reason":  "商业航天|子公司国瓷赛创是低轨卫星用陶瓷管壳的主要供应商之一，同时陶瓷材料、高导热陶瓷基片、陶瓷管壳在低轨卫星领域也实现了一体化的供应。",
+                                           "sealAmount":  704256280
                                        },
                                        {
-                                           "name":  "博迈科",
-                                           "code":  "603727",
+                                           "name":  "大族激光",
+                                           "code":  "002008",
                                            "boards":  1,
-                                           "firstTime":  "10:04:08",
-                                           "lastTime":  "10:04:08",
-                                           "theme":  "石油石化、天然气",
-                                           "reason":  "石油石化",
-                                           "sealAmount":  91733260
+                                           "firstTime":  "11:03:15",
+                                           "lastTime":  "11:04:06",
+                                           "theme":  "自动化设",
+                                           "reason":  "业绩+PCB|大族激光公告称，公司发布2026年半年度业绩快报，实现营业收入134.13亿元，同比增长76.19%；归属于上市公司股东的净利润12.86亿元，同比增长163.47%。业绩增长主要系PCB专用设备、消费电子设备、锂电及半导体设备等多个业务板块订单及营收同比大幅增长。",
+                                           "sealAmount":  796256366
                                        },
                                        {
-                                           "name":  "粤电力Ａ",
-                                           "code":  "000539",
+                                           "name":  "木林森",
+                                           "code":  "002745",
                                            "boards":  1,
-                                           "firstTime":  "10:11:51",
-                                           "lastTime":  "11:00:42",
-                                           "theme":  "绿色电力、火电",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  86742104
+                                           "firstTime":  "11:04:18",
+                                           "lastTime":  "11:23:12",
+                                           "theme":  "光学光电",
+                                           "reason":  "PCB|公司生产的PCB主要应用于LED照明领域。",
+                                           "sealAmount":  198082739
                                        },
                                        {
-                                           "name":  "中煤能源",
-                                           "code":  "601898",
+                                           "name":  "同济科技",
+                                           "code":  "600846",
                                            "boards":  1,
-                                           "firstTime":  "10:33:25",
-                                           "lastTime":  "14:34:13",
-                                           "theme":  "煤炭、动力煤",
-                                           "reason":  "煤炭",
-                                           "sealAmount":  35023842
+                                           "firstTime":  "11:04:51",
+                                           "lastTime":  "11:04:51",
+                                           "theme":  "工程咨询",
+                                           "reason":  "基建|公司主要业务为工程建设及监理咨询、房地产、环保、科技园开发管理。公司开发业务聚集上海，开发项目类型涵盖住宅、办公楼、商业、酒店等，通过从前期策划、规划设计、建设到物业管理的全产业链模式，实现稳健开发运营。",
+                                           "sealAmount":  82682559
                                        },
                                        {
-                                           "name":  "道生天合",
-                                           "code":  "601026",
+                                           "name":  "万通智控",
+                                           "code":  "300643",
                                            "boards":  1,
-                                           "firstTime":  "10:42:47",
-                                           "lastTime":  "14:26:29",
-                                           "theme":  "次新股、储能",
-                                           "reason":  "次新股",
-                                           "sealAmount":  15787008
+                                           "firstTime":  "11:05:03",
+                                           "lastTime":  "11:05:03",
+                                           "theme":  "汽车零部",
+                                           "reason":  "机器人|公司与浙江大学科研团队达成了意向，明确了合作主要内容方向，在具身智能领域的主要方向是：面向新能源汽车及仿生机器狗的MEMS热导式氢传感器；与公司传感器技术相关的适合搭载在机器狗身上的传感器；与公司传感器技术相关的适合搭载在人型具身智能的某些传感器；及其他与具身智能相关的传感与控制系统方向。",
+                                           "sealAmount":  243881547
                                        },
                                        {
-                                           "name":  "江苏索普",
-                                           "code":  "600746",
+                                           "name":  "三祥新材",
+                                           "code":  "603663",
                                            "boards":  1,
-                                           "firstTime":  "10:43:08",
-                                           "lastTime":  "10:44:23",
-                                           "theme":  "醋酸、甲醇",
-                                           "reason":  "中报增长",
-                                           "sealAmount":  13309109
+                                           "firstTime":  "11:05:41",
+                                           "lastTime":  "11:05:41",
+                                           "theme":  "化学原料",
+                                           "reason":  "锆+核电|1.电熔氧化锆龙头企业，拥有普通电熔氧化锆、高纯电熔氧化锆、稳定电熔氧化锆、特种电熔氧化锆等系列产品，产品广泛应用于耐火耐磨材料、陶瓷色釉料、锆基刹车片、电子、机械、钢铁、化工等领域。\n2.公司核级海绵锆产品已实现批量出货，并成功导入核电供应链，客户涵盖海外核电装备龙头企业。",
+                                           "sealAmount":  284324208
                                        },
                                        {
-                                           "name":  "麒盛科技",
-                                           "code":  "603610",
+                                           "name":  "大为股份",
+                                           "code":  "002213",
                                            "boards":  1,
-                                           "firstTime":  "10:47:30",
-                                           "lastTime":  "10:53:39",
-                                           "theme":  "脑机接口、AI智能体",
-                                           "reason":  "脑机接口",
-                                           "sealAmount":  45497498
+                                           "firstTime":  "11:07:09",
+                                           "lastTime":  "11:07:09",
+                                           "theme":  "半导体",
+                                           "reason":  "半导体+锂矿|1.公司旗下大为创芯主要产品有NAND、DRAM存储两大系列，覆盖DDR3、DDR4、LPDDR4X商规/宽温级别产品，已有eMMC工业级产品线。\n2.2025年6月5日公告，公司的全资子公司桂阳大为矿业近日收到湖南省自然资源厅的复函，确认《湖南省桂阳县大冲里矿区长石矿勘探报告》矿产资源储量通过评审备案。截至2024年10月底，桂阳县大冲里矿区长石矿探明资源量、控制资源量及推断资源量合计2.10亿吨，其中包括伴生锂，伴生钨，伴生锡等。",
+                                           "sealAmount":  254455677
                                        },
                                        {
-                                           "name":  "陇神戎发",
-                                           "code":  "300534",
+                                           "name":  "海亮股份",
+                                           "code":  "002203",
                                            "boards":  1,
-                                           "firstTime":  "10:50:45",
-                                           "lastTime":  "14:50:09",
-                                           "theme":  "中药、金融概念",
-                                           "reason":  "中药",
-                                           "sealAmount":  7313312
+                                           "firstTime":  "11:07:09",
+                                           "lastTime":  "11:07:09",
+                                           "theme":  "工业金属",
+                                           "reason":  "PCB+铜矿|1.公司标准铜箔用于制造覆铜板、印制电路板，起导电、散热作用。\n2.公司认购中国最大镍钴铂族金属生产企业——金川集团的股份，占其总股本的1.12%。金川集团是中国最大的镍钴铂族金属生产企业和中国第三大铜生产企业，在全球24个国家或地区开展有色金属矿产资源开发与合作。",
+                                           "sealAmount":  127048896
                                        },
                                        {
-                                           "name":  "双枪科技",
-                                           "code":  "001211",
+                                           "name":  "江南新材",
+                                           "code":  "603124",
                                            "boards":  1,
-                                           "firstTime":  "11:01:06",
-                                           "lastTime":  "11:01:06",
-                                           "theme":  "零售、地产链",
-                                           "reason":  "零售",
-                                           "sealAmount":  71540478
+                                           "firstTime":  "11:08:11",
+                                           "lastTime":  "11:08:11",
+                                           "theme":  "金属新材",
+                                           "reason":  "PCB|公司核心产品包括铜球系列、氧化铜粉系列及高精密铜基散热片系列三大产品类别，应用于PCB镀铜制程，下游客户覆盖大多数境内外一线PCB制造企业，包括鹏鼎控股、东山精密、健鼎科技、深南电路、瀚宇博德、景旺电子、志超科技、奥士康、胜宏科技、崇达技术、定颖电子、博敏电子等。",
+                                           "sealAmount":  126181994
                                        },
                                        {
-                                           "name":  "三晖电气",
-                                           "code":  "002857",
+                                           "name":  "麦格米特",
+                                           "code":  "002851",
                                            "boards":  1,
-                                           "firstTime":  "11:10:36",
-                                           "lastTime":  "11:10:36",
-                                           "theme":  "机器人概念、智能电网",
-                                           "reason":  "机器人概念",
-                                           "sealAmount":  9368762
+                                           "firstTime":  "11:08:12",
+                                           "lastTime":  "11:10:00",
+                                           "theme":  "其他电源",
+                                           "reason":  "IDC电源+玻璃基板|1.公司电源产品中的服务器电源一般在数据中心的服务器机柜、服务器、交换机、路由器、存储设备中，是一种将交流电转换为直流电的装置。\n2.2024年5月21日公司在互动平台表示，公司目前正在进行“面向半导体玻璃基板激光打孔高精度气浮定位平台开发”项目研发，目前处于项目验证阶段。",
+                                           "sealAmount":  472634466
                                        },
                                        {
-                                           "name":  "闰土股份",
-                                           "code":  "002440",
+                                           "name":  "杰华特",
+                                           "code":  "688141",
                                            "boards":  1,
-                                           "firstTime":  "11:17:42",
-                                           "lastTime":  "14:03:03",
-                                           "theme":  "分散染料、化工",
-                                           "reason":  "分散染料",
-                                           "sealAmount":  41073856
+                                           "firstTime":  "11:08:22",
+                                           "lastTime":  "13:00:01",
+                                           "theme":  "半导体",
+                                           "reason":  "模拟芯片|公司是以虚拟IDM为主要经营模式的模拟集成电路设计企业，专业从事模拟集成电路的研发与销售。",
+                                           "sealAmount":  272630204
                                        },
                                        {
-                                           "name":  "中国海油",
-                                           "code":  "600938",
+                                           "name":  "科华控股",
+                                           "code":  "603161",
                                            "boards":  1,
-                                           "firstTime":  "11:29:23",
-                                           "lastTime":  "13:02:38",
-                                           "theme":  "石油石化、电力",
-                                           "reason":  "石油石化",
-                                           "sealAmount":  115981304
+                                           "firstTime":  "11:15:33",
+                                           "lastTime":  "11:15:33",
+                                           "theme":  "汽车零部",
+                                           "reason":  "定增获批|7月16日晚，科华控股发布公告称，公司于2026年7月16日收到中国证券监督管理委员会出具的《关于同意科华控股股份有限公司向特定对象发行股票注册的批复》，主要内容为：同意公司向特定对象发行股票的注册申请。本次发行应严格按照报送上海证券交易所的申报文件和发行方案实施。",
+                                           "sealAmount":  48280452
                                        },
                                        {
-                                           "name":  "兖矿能源",
-                                           "code":  "600188",
+                                           "name":  "格科微",
+                                           "code":  "688728",
                                            "boards":  1,
-                                           "firstTime":  "13:10:18",
-                                           "lastTime":  "14:18:36",
-                                           "theme":  "煤炭、动力煤",
-                                           "reason":  "煤炭",
-                                           "sealAmount":  48652861
+                                           "firstTime":  "11:16:43",
+                                           "lastTime":  "11:16:43",
+                                           "theme":  "半导体",
+                                           "reason":  "半导体芯片|公司为国内领先、国际知名的半导体和集成电路设计企业之一，主营业务为CMOS图像传感器和显示驱动芯片的研发、设计和销售，产品主要应用于手机领域。",
+                                           "sealAmount":  330048212
                                        },
                                        {
-                                           "name":  "华能蒙电",
-                                           "code":  "600863",
+                                           "name":  "睿创微纳",
+                                           "code":  "688002",
                                            "boards":  1,
-                                           "firstTime":  "13:13:47",
-                                           "lastTime":  "14:56:08",
-                                           "theme":  "绿色电力、风电运营商",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  5547100
+                                           "firstTime":  "11:17:38",
+                                           "lastTime":  "11:26:59",
+                                           "theme":  "军工电子",
+                                           "reason":  "半导体芯片|公司具有完整的从集成电路到MEMS器件、模组技术研发和产品实现能力，已成功开发出红外MEMS芯片、探测器、机芯及整机系列产品。",
+                                           "sealAmount":  293109500
                                        },
                                        {
-                                           "name":  "善水科技",
-                                           "code":  "301190",
+                                           "name":  "杉杉股份",
+                                           "code":  "600884",
                                            "boards":  1,
-                                           "firstTime":  "13:17:33",
-                                           "lastTime":  "13:17:33",
-                                           "theme":  "农药、化工",
-                                           "reason":  "中报增长",
-                                           "sealAmount":  42712098
+                                           "firstTime":  "11:21:36",
+                                           "lastTime":  "11:21:36",
+                                           "theme":  "电池",
+                                           "reason":  "实控人变更|杉杉股份公告称，公司于2026年7月20日召开临时股东会，审议通过董事会换届选举议案。第一大股东皖维集团已完成董事会改组，公司控股股东变更为皖维集团，实际控制人变更为安徽省国资委。皖维集团合计控制公司21.88%股份表决权。后续皖维集团与海螺集团等重组完成后，海螺集团将成为公司间接控股股东。",
+                                           "sealAmount":  457303103
                                        },
                                        {
-                                           "name":  "京能电力",
-                                           "code":  "600578",
+                                           "name":  "蔚蓝锂芯",
+                                           "code":  "002245",
                                            "boards":  1,
-                                           "firstTime":  "13:18:03",
-                                           "lastTime":  "14:43:57",
-                                           "theme":  "绿色电力、蚂蚁概念",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  22610588
+                                           "firstTime":  "11:25:48",
+                                           "lastTime":  "11:25:48",
+                                           "theme":  "电池",
+                                           "reason":  "数据中心BBU电池|公司用于数据中心BBU电池有出货。",
+                                           "sealAmount":  562625249
                                        },
                                        {
-                                           "name":  "建投能源",
-                                           "code":  "000600",
+                                           "name":  "凯盛科技",
+                                           "code":  "600552",
                                            "boards":  1,
-                                           "firstTime":  "13:22:54",
-                                           "lastTime":  "14:51:36",
-                                           "theme":  "火电、电力",
-                                           "reason":  "火电",
-                                           "sealAmount":  3753137
+                                           "firstTime":  "11:27:03",
+                                           "lastTime":  "11:27:03",
+                                           "theme":  "光学光电",
+                                           "reason":  "锆+玻璃基板|1.全资子公司蚌埠中恒产品在全球电熔锆行业内具有很高的知名度和美誉度，市场占有率达55%，处于行业龙头地位。新材料方面，自主研发的高纯超细氧化锆已于2017年量产，产品供不应求。\n2.公司拥有国内领先的显示材料产业集群，产品覆盖从上游玻璃基板到下游模组集成的全链条，致力于为用户提供一站式显示解决方案。",
+                                           "sealAmount":  448470198
                                        },
                                        {
-                                           "name":  "淮北矿业",
-                                           "code":  "600985",
+                                           "name":  "正帆科技",
+                                           "code":  "688596",
                                            "boards":  1,
-                                           "firstTime":  "14:02:52",
-                                           "lastTime":  "14:12:34",
-                                           "theme":  "煤炭、冶金煤",
-                                           "reason":  "煤炭",
-                                           "sealAmount":  1018424
+                                           "firstTime":  "11:27:15",
+                                           "lastTime":  "11:27:15",
+                                           "theme":  "专用设备",
+                                           "reason":  "电子特气|公司是国内少数具备电子特种气体研发及量产能力的本土企业，已实现砷烷、磷烷等关键电子特种气体的国产替代，具备硅烷、乙硼烷、锗烷等多品类电子特气的商业化供应能力。在大宗气体业务领域，公司具备高纯氮气、氧气、氩气等产品的规模化供应能力，服务于集成电路、精细化工及新能源领域。",
+                                           "sealAmount":  178705775
                                        },
                                        {
-                                           "name":  "华电辽能",
-                                           "code":  "600396",
+                                           "name":  "宏和科技",
+                                           "code":  "603256",
                                            "boards":  1,
-                                           "firstTime":  "14:42:38",
-                                           "lastTime":  "14:42:38",
-                                           "theme":  "绿色电力、智能电网",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  74588042
+                                           "firstTime":  "11:28:35",
+                                           "lastTime":  "11:28:35",
+                                           "theme":  "玻璃玻纤",
+                                           "reason":  "电子布|公司是全球领先的中高端电子级玻璃纤维布专业厂商，是全球少数具备极薄布生产能力的厂商之一。公司主要产品为中高端电子级玻璃纤维布系列产品，为制造电子产品核心铜箔基板的重要原料。",
+                                           "sealAmount":  678753700
                                        },
                                        {
-                                           "name":  "大唐发电",
-                                           "code":  "601991",
+                                           "name":  "紫光股份",
+                                           "code":  "000938",
                                            "boards":  1,
-                                           "firstTime":  "14:42:44",
-                                           "lastTime":  "15:00:00",
-                                           "theme":  "火电、水电",
-                                           "reason":  "火电",
-                                           "sealAmount":  130530972
+                                           "firstTime":  "11:29:33",
+                                           "lastTime":  "11:29:33",
+                                           "theme":  "IT服务Ⅱ",
+                                           "reason":  "交换机+服务器|1.公司网络设备包括交换机、路由器、WLAN、IoT、SDN、5G小站、PON、智能管理与统一运维服务等。\n2.公司已经具备了完善的AI服务器产品和解决方案，产品布局在业界处于领先地位，全面服务于各行各业。",
+                                           "sealAmount":  2509665965
                                        },
                                        {
-                                           "name":  "晋控煤业",
-                                           "code":  "601001",
+                                           "name":  "星网锐捷",
+                                           "code":  "002396",
                                            "boards":  1,
-                                           "firstTime":  "14:43:58",
-                                           "lastTime":  "14:43:58",
-                                           "theme":  "煤炭、国有企业",
-                                           "reason":  "煤炭",
-                                           "sealAmount":  34482280
+                                           "firstTime":  "13:00:03",
+                                           "lastTime":  "13:00:03",
+                                           "theme":  "通信设备",
+                                           "reason":  "业绩+交换机|公司预计2026年1-6月实现归母净利润31000万元至43000万元，同比增长46.27%-102.90%。报告期内，子公司面向互联网客户的数据中心交换机业务大幅增长，成为本期经营业绩增长的核心驱动因素。",
+                                           "sealAmount":  625290054
                                        },
                                        {
-                                           "name":  "百合花",
-                                           "code":  "603823",
+                                           "name":  "广合科技",
+                                           "code":  "001389",
                                            "boards":  1,
-                                           "firstTime":  "14:49:01",
-                                           "lastTime":  "14:49:01",
-                                           "theme":  "PEEK、新材料概念",
-                                           "reason":  "PEEK",
-                                           "sealAmount":  31582674
+                                           "firstTime":  "13:00:03",
+                                           "lastTime":  "13:00:03",
+                                           "theme":  "元件",
+                                           "reason":  "PCB|公司主营业务是印制电路板的研发、生产和销售。在下游应用和技术能力方面具有代表性产品有高性能计算服务器板、AI运算服务器板、高性能存储服务器板等。",
+                                           "sealAmount":  1342187
                                        },
                                        {
-                                           "name":  "浙江新能",
-                                           "code":  "600032",
+                                           "name":  "鑫宏业",
+                                           "code":  "301310",
                                            "boards":  1,
-                                           "firstTime":  "14:55:20",
-                                           "lastTime":  "14:55:20",
-                                           "theme":  "绿色电力、水电",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  787336
+                                           "firstTime":  "13:00:12",
+                                           "lastTime":  "13:00:12",
+                                           "theme":  "汽车零部",
+                                           "reason":  "机器人+核电|1.公司从2013年投入研发机器人线缆，已有数十年的研发经验，且已经掌握多项技术专利，并配套国内多家工业机器人企业。\n2.公司工业线缆主要应用于工业控制设备、储能、消费电子、家用电器、医疗器械等领域。在储能线缆领域，公司具有显著的先发和技术优势，与锦浪科技、固德威等储能领域客户建立了紧密的合作关系。\n",
+                                           "sealAmount":  141235908
+                                       },
+                                       {
+                                           "name":  "爱迪特",
+                                           "code":  "301580",
+                                           "boards":  1,
+                                           "firstTime":  "13:00:18",
+                                           "lastTime":  "13:00:18",
+                                           "theme":  "医疗器械",
+                                           "reason":  "氧化锆|公司已在钇稳定氧化锆粉体供应端建立了多元且可控的保障体系，与核心供应商签署年度锁价锁量协议，确保关键原料库存始终保持在安全水位以上。",
+                                           "sealAmount":  114433132
                                        }
                                    ]
                     },
@@ -938,167 +949,139 @@ const limitBoardData={
                         "name":  "二板",
                         "stocks":  [
                                        {
-                                           "name":  "乐山电力",
-                                           "code":  "600644",
+                                           "name":  "美利云",
+                                           "code":  "000815",
                                            "boards":  2,
-                                           "firstTime":  "09:32:45",
-                                           "lastTime":  "10:03:03",
-                                           "theme":  "绿色电力、水电",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  48163997
+                                           "firstTime":  "09:30:00",
+                                           "lastTime":  "09:30:00",
+                                           "theme":  "IT服务Ⅱ",
+                                           "reason":  "国资云|公司是中国诚通控股集团旗下上市公司，数据中心位于宁夏中卫市，处于国家战略工程“东数西算”的双节点城市。美利云公告称，目前数据中心业务主要提供机架出租、网络接入及运维服务，暂未提供算力。",
+                                           "sealAmount":  302804792
                                        },
                                        {
-                                           "name":  "华银电力",
-                                           "code":  "600744",
+                                           "name":  "中嘉博创",
+                                           "code":  "000889",
                                            "boards":  2,
-                                           "firstTime":  "09:35:00",
-                                           "lastTime":  "09:49:30",
-                                           "theme":  "绿色电力、电力",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  190354957
+                                           "firstTime":  "09:34:42",
+                                           "lastTime":  "09:35:15",
+                                           "theme":  "通信服务",
+                                           "reason":  "业绩+算力租赁|1.公司预计2026年1-6月实现归母净利润为9953.38万元至1.49亿元，同比扭亏为盈，上年同期亏损2143.89万元。\n2.公司于2021年4月28日在互动平台表示，公司2020年正式开展离岸运算服务，并计划从2021年二季度开始从算力运营服务向算力设备采购进一步延伸拓展，直接提供算力输出。",
+                                           "sealAmount":  75439880
                                        },
                                        {
-                                           "name":  "金牛化工",
-                                           "code":  "600722",
+                                           "name":  "联创电子",
+                                           "code":  "002036",
                                            "boards":  2,
-                                           "firstTime":  "09:35:46",
-                                           "lastTime":  "09:35:46",
-                                           "theme":  "甲醇、国有企业",
-                                           "reason":  "甲醇",
-                                           "sealAmount":  89800339
-                                       },
-                                       {
-                                           "name":  "桂冠电力",
-                                           "code":  "600236",
-                                           "boards":  2,
-                                           "firstTime":  "11:00:56",
-                                           "lastTime":  "14:15:23",
-                                           "theme":  "绿色电力、电力",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  20561635
-                                       },
-                                       {
-                                           "name":  "湖南发展",
-                                           "code":  "000722",
-                                           "boards":  2,
-                                           "firstTime":  "14:44:33",
-                                           "lastTime":  "14:56:21",
-                                           "theme":  "绿色电力、水电",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  3262545
-                                       },
-                                       {
-                                           "name":  "深南电A",
-                                           "code":  "000037",
-                                           "boards":  2,
-                                           "firstTime":  "14:45:48",
-                                           "lastTime":  "14:55:12",
-                                           "theme":  "电力、环保",
-                                           "reason":  "电力",
-                                           "sealAmount":  1771000
+                                           "firstTime":  "09:36:33",
+                                           "lastTime":  "09:36:33",
+                                           "theme":  "光学光电",
+                                           "reason":  "无人驾驶+光通信|1.公司车载镜头和影像模组已被应用于无人驾驶的相关市场，是国内外ADAS镜头主力供应商。\n2.公司具备光模块所需玻璃镜片、硅透镜的技术储备。",
+                                           "sealAmount":  140065158
                                        }
                                    ]
                     },
                     {
                         "name":  "三板",
                         "stocks":  [
-                                       {
-                                           "name":  "立新能源",
-                                           "code":  "001258",
-                                           "boards":  3,
-                                           "firstTime":  "09:31:57",
-                                           "lastTime":  "09:49:15",
-                                           "theme":  "绿色电力、储能",
-                                           "reason":  "绿色电力",
-                                           "sealAmount":  132620670
-                                       }
+
                                    ]
                     },
                     {
                         "name":  "高度板",
                         "stocks":  [
-
+                                       {
+                                           "name":  "立新能源",
+                                           "code":  "001258",
+                                           "boards":  4,
+                                           "firstTime":  "09:25:00",
+                                           "lastTime":  "11:14:48",
+                                           "theme":  "电力",
+                                           "reason":  "绿电|公司的主营业务为风力发电、光伏发电项目的投资、开发、建设和运营。公司运营的风电场、光伏电站主要位于新疆。",
+                                           "sealAmount":  428428
+                                       }
                                    ]
                     }
                 ],
     "yesterdayHigh":  [
                           {
-                              "name":  "云创退",
-                              "code":  "920305",
-                              "yesterdayBoards":  5,
-                              "change":  -29.7,
-                              "status":  "断板",
-                              "statusClass":  "break",
-                              "theme":  "IT服务Ⅱ"
+                              "name":  "立新能源",
+                              "code":  "001258",
+                              "yesterdayBoards":  3,
+                              "change":  9.89,
+                              "status":  "继续晋级",
+                              "statusClass":  "advance",
+                              "theme":  "绿色电力、储能"
                           }
                       ]
 };
 const strategyData={
-    "summary":  "情绪偏弱 · 分歧升温 · 次日不追一致高开",
-    "turnover":  2.7,
-    "turnoverDiff":  0.05,
-    "rise":  1709,
-    "fall":  3415,
-    "limitUp":  53,
-    "broken":  38,
-    "bombRate":  41.8,
+    "summary":  "情绪中性 · 缩量轮动 · 次日不追一致高开",
+    "turnover":  2.02,
+    "turnoverDiff":  -0.68,
+    "rise":  2518,
+    "fall":  2566,
+    "limitUp":  51,
+    "broken":  3,
+    "bombRate":  5.6,
     "mainLines":  [
                       {
-                          "title":  "主线一｜公用事业相对强势",
-                          "text":  "主力净流入 -7.12亿。若次日指数与成交同步走强，可观察分歧回踩后的承接；孤立高开不追。",
+                          "title":  "主线一｜科技板块相对强势",
+                          "text":  "主力净流入 +66.40亿。若次日指数与成交同步走强，可观察分歧回踩后的承接；孤立高开不追。",
                           "tags":  [
-                                       "电力"
+                                       "半导体",
+                                       "电子化学品",
+                                       "其他电子"
                                    ]
                       },
                       {
-                          "title":  "主线二｜金融板块轮动观察",
-                          "text":  "主力净流入 -10.74亿。优先验证前排强度与基本面催化，后排跟涨不追。",
+                          "title":  "主线二｜公用事业轮动观察",
+                          "text":  "主力净流入 -4.89亿。优先验证前排强度与基本面催化，后排跟涨不追。",
                           "tags":  [
-                                       "保险",
-                                       "银行",
-                                       "证券"
+                                       "半导体",
+                                       "电子化学品",
+                                       "元件"
                                    ]
                       }
                   ],
     "signals":  [
                     {
                         "name":  "上涨/下跌",
-                        "value":  "1709 / 3415",
-                        "signal":  "偏弱",
-                        "meaning":  "控制试错频率",
+                        "value":  "2518 / 2566",
+                        "signal":  "中性",
+                        "meaning":  "结构分化",
                         "good":  false
                     },
                     {
                         "name":  "两市成交",
-                        "value":  "2.70万亿（+0.05）",
-                        "signal":  "放量",
-                        "meaning":  "承接增强",
-                        "good":  true
+                        "value":  "2.02万亿（-0.68）",
+                        "signal":  "缩量",
+                        "meaning":  "轮动加快",
+                        "good":  false
                     },
                     {
                         "name":  "涨停/炸板",
-                        "value":  "53 / 38",
-                        "signal":  "强分歧",
-                        "meaning":  "去弱留强",
-                        "good":  false
+                        "value":  "51 / 3",
+                        "signal":  "稳定",
+                        "meaning":  "观察持续性",
+                        "good":  true
                     },
                     {
                         "name":  "炸板率",
-                        "value":  "41.8%",
-                        "signal":  "谨慎",
-                        "meaning":  "不追一致高开",
-                        "good":  false
+                        "value":  "5.6%",
+                        "signal":  "可控",
+                        "meaning":  "仍需确认承接",
+                        "good":  true
                     },
                     {
-                        "name":  "公用事业/金融板块",
-                        "value":  "-7.12亿 / -10.74亿",
+                        "name":  "科技板块/公用事业",
+                        "value":  "+66.40亿 / -4.89亿",
                         "signal":  "相对强势",
                         "meaning":  "优先观察轮动主线",
-                        "good":  false
+                        "good":  true
                     },
                     {
                         "name":  "最弱资金方向",
-                        "value":  "科技板块 -319.30亿",
+                        "value":  "消费板块 -40.59亿",
                         "signal":  "风险",
                         "meaning":  "等资金止流再看",
                         "good":  false
@@ -1106,21 +1089,21 @@ const strategyData={
                 ],
     "concepts":  [
                      {
-                         "name":  "天然气",
-                         "heat":  96.57
+                         "name":  "英伟达概念",
+                         "heat":  94.51
                      },
                      {
-                         "name":  "水电",
-                         "heat":  95.56
+                         "name":  "陶瓷产业",
+                         "heat":  94.5
                      },
                      {
-                         "name":  "国资云",
-                         "heat":  94.59
+                         "name":  "华为产业链",
+                         "heat":  90.75
                      }
                  ],
     "playbook":  [
-                     "公用事业：指数与成交共振，回踩承接后再观察",
-                     "金融板块：只看前排与基本面验证，不做后排追涨",
+                     "科技板块：指数与成交共振，回踩承接后再观察",
+                     "公用事业：只看前排与基本面验证，不做后排追涨",
                      "热门概念：分歧转强才参与，冲高回落即放弃",
                      "风控：明显缩量、炸板率升破40%或涨跌比反转，主动降仓"
                  ],
@@ -1294,6 +1277,17 @@ const historyData=[
         "turnover":  2.7,
         "rise":  1709,
         "fall":  3415
+    },
+    {
+        "date":  "20260721",
+        "close":  3826.85,
+        "change":  0.81,
+        "turnover":  2.02,
+        "rise":  2518,
+        "fall":  2566,
+        "limitUp":  46,
+        "limitDown":  23,
+        "live":  true
     }
 ];
 const cls=v=>v>0?'up':v<0?'down':'flat';
@@ -1331,9 +1325,28 @@ const lastTrade=parseDay(historyData[historyData.length-1].date);
 const calEnd=new Date(lastTrade);calEnd.setDate(calEnd.getDate()+(6-calEnd.getDay()));
 const calStart=new Date(calEnd);calStart.setDate(calStart.getDate()-34);
 const calendarCells=[];
+function painInfo(x){
+  const total=x.rise+x.fall,risePct=total?x.rise/total*100:0,fallPct=total?x.fall/total*100:0,limitUp=Number.isFinite(+x.limitUp)?+x.limitUp:null,limitDown=Number.isFinite(+x.limitDown)?+x.limitDown:null,deepFall=Number.isFinite(+x.deepFall)?+x.deepFall:null;
+  let score=fallPct;
+  if(limitDown!==null)score+=Math.min(35,limitDown/220*35);
+  if(deepFall!==null)score+=Math.min(35,deepFall/900*35);
+  if(limitDown>=220||deepFall>=900)return{cls:'extreme',label:'极端冰点',limitDown,deepFall,score};
+  if(limitDown>=150||deepFall>=600||score>=115)return{cls:'ice',label:'冰点',limitDown,deepFall,score};
+  if(x.fall>=3500||limitDown>=80||deepFall>=350||score>=92)return{cls:'loss',label:'杀跌扩散',limitDown,deepFall,score};
+  if(x.change>0){
+    if(limitUp!==null&&limitUp>=100&&x.rise>=4000&&(limitDown===null||limitDown<20))return{cls:'climax',label:'高潮',limitDown,deepFall,score};
+    if(x.change>=1.5&&x.rise>=4200&&Number.isFinite(+x.turnoverDiff)&&x.turnoverDiff>0)return{cls:'squeeze',label:'逼空',limitDown,deepFall,score};
+    if(x.change>=1&&x.rise>=3500&&(limitUp===null||limitUp>=60))return{cls:'strong',label:'强修复',limitDown,deepFall,score};
+    if(x.rise>=3500&&(limitDown===null||limitDown<30)&&(deepFall===null||deepFall<150))return{cls:'broad',label:'普涨',limitDown,deepFall,score};
+    if(x.rise>=2500&&(limitDown===null||limitDown<50))return{cls:'repair',label:'修复',limitDown,deepFall,score};
+    return{cls:'weak',label:'弱修复',limitDown,deepFall,score};
+  }
+  if(x.fall>=2500||fallPct>=58)return{cls:'wide',label:'普跌',limitDown,deepFall,score};
+  return{cls:'mild',label:'温和调整',limitDown,deepFall,score};
+}
 for(let d=new Date(calStart);d<=calEnd;d.setDate(d.getDate()+1)){
   const key=dayKey(d),x=historyMap.get(key),isFuture=d>lastTrade;
-  if(x){const total=x.rise+x.fall,upPct=total?x.rise/total*100:50,diff=x.turnoverDiff,diffText=diff===null?'--':`${diff>0?'+':''}${diff.toFixed(2)}万亿`;calendarCells.push(`<div class="cal-day ${x.change>0?'day-up':x.change<0?'day-down':'day-flat'}"><div><div class="cal-date">${key.slice(4,6)}/${key.slice(6,8)}${x.live?'<span class="live">盘中</span>':''}</div><div class="cal-index">上证 ${x.close.toFixed(2)}</div><div class="cal-change ${cls(x.change)}">${signed(x.change)}</div><div class="cal-turnover">${x.turnover.toFixed(2)}万亿</div><div class="cal-turnover-diff ${diff===null?'flat':cls(diff)}">${diffText}</div></div><div><div class="cal-counts"><span>涨 ${x.rise}</span><span>跌 ${x.fall}</span></div><div class="breadth-bar" title="上涨${x.rise}家 / 下跌${x.fall}家"><span class="rise" style="width:${upPct.toFixed(1)}%"></span><span class="fall" style="width:${(100-upPct).toFixed(1)}%"></span></div></div></div>`)}
+  if(x){const total=x.rise+x.fall,upPct=total?x.rise/total*100:50,diff=x.turnoverDiff,diffText=diff===null?'--':`${diff>0?'+':''}${diff.toFixed(2)}万亿`,pain=painInfo(x),ld=pain.limitDown,df=pain.deepFall,ldText=ld===null?'--':ld,dfText=df===null?'--':df,ldPct=total&&ld!==null?Math.min(100,ld/total*100):0,dfPct=total&&df!==null?Math.min(100,Math.max(0,(df-(ld||0)))/total*100):0,nfPct=Math.max(0,100-upPct-ldPct-dfPct);calendarCells.push(`<div class="cal-day ${x.change>0?'day-up':x.change<0?'day-down':'day-flat'} heat-${pain.cls}"><div><div class="cal-date">${key.slice(4,6)}/${key.slice(6,8)}${x.live?'<span class="live">盘中</span>':''}</div><div class="cal-index">上证 ${x.close.toFixed(2)}</div><div class="cal-change ${cls(x.change)}">${signed(x.change)}</div><div class="cal-turnover">${x.turnover.toFixed(2)}万亿</div><div class="cal-turnover-diff ${diff===null?'flat':cls(diff)}">${diffText}</div><span class="pain-pill ${pain.cls}">${pain.label}</span><div class="pain-stats"><span class="${ld===null?'missing':''}">跌停 ${ldText}</span><span class="${df===null?'missing':''}">&lt;-5% ${dfText}</span></div></div><div><div class="cal-counts"><span>涨 ${x.rise}</span><span>跌 ${x.fall}</span></div><div class="breadth-bar" title="上涨${x.rise}家 / 下跌${x.fall}家"><span class="rise" style="width:${upPct.toFixed(1)}%"></span><span class="fall" style="width:${(100-upPct).toFixed(1)}%"></span></div><div class="pain-bar" title="跌停${ldText}家 / 跌幅超过5% ${dfText}家"><span class="limitdown" style="width:${ldPct.toFixed(1)}%"></span><span class="deepfall" style="width:${dfPct.toFixed(1)}%"></span><span class="normalfall" style="width:${nfPct.toFixed(1)}%"></span></div></div></div>`)}
   else{calendarCells.push(`<div class="cal-day ${isFuture?'future':'off'}"><div class="cal-date">${key.slice(4,6)}/${key.slice(6,8)}</div><div class="off-text">${isFuture?'待更新':'休市'}</div></div>`)}
 }
 document.getElementById('historyCalendar').innerHTML=calendarCells.join('');
