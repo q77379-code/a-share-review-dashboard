@@ -322,7 +322,7 @@
   <header>
     <h1>A股短线资讯看板</h1>
     <div class="meta">
-      <span>生成时间：2026-07-31 09:37:56 CST</span>
+      <span>生成时间：2026-07-31 12:54:22 CST</span>
       <span>口径：国际 10 条 / 国内 10 条</span>
       <span>筛选：优先官方、交易所、上市公司公告、权威媒体；剔除股吧小道消息</span>
       <span>用途：短线情绪与板块映射，不构成投资建议</span>
@@ -511,15 +511,15 @@
     "side": "国内",
     "level": "high",
     "sentiment": "利好",
-    "sector": "顺周期制造/化工/机械设备",
-    "title": "统计局：1至6月规上工业企业利润增长18.7%，装备与原材料链景气改善",
-    "fact": "国家统计局7月27日发布数据，1至6月份，全国规模以上工业企业实现利润总额同比增长18.7%，延续较快增长态势。",
-    "map": "利好机械设备、化工、有色、汽车零部件等顺周期制造链，提升市场对中报业绩线和景气修复方向的关注。",
-    "related": "机械设备、化工、有色、汽车零部件、三一重工、恒力石化、华友钴业",
-    "risk": "宏观利润修复并不代表所有子行业同步改善，短线更应区分有订单和价格支撑的细分方向。",
+    "sector": "宏观数据/顺周期/黑色建材",
+    "title": "统计局：7月制造业PMI升至49.3%，建筑业景气保持扩张",
+    "fact": "国家统计局7月31日发布数据显示，7月制造业采购经理指数为49.3%，比上月上升0.3个百分点；非制造业商务活动指数为50.1%，其中建筑业商务活动指数为50.6%，继续位于扩张区间。",
+    "map": "利好顺周期、建材、工程机械、煤炭钢铁和稳增长链条情绪，也有助于提升市场对政策加力后需求边际修复的关注。",
+    "related": "顺周期、建材、工程机械、钢铁、煤炭、三一重工、海螺水泥、宝钢股份",
+    "risk": "制造业PMI仍处荣枯线下方，更多体现边际改善而非全面修复，短线更适合关注政策受益和弹性更强的细分龙头。",
     "source": "国家统计局",
-    "sourceTime": "2026-07-27 09:30 CST",
-    "url": "https://www.stats.gov.cn/sj/zxfb/202607/t20260727_1964194.html"
+    "sourceTime": "2026-07-31 09:30 CST",
+    "url": "https://www.stats.gov.cn/sj/zxfb/202607/t20260731_1964250.html"
   },
   {
     "side": "国际",
@@ -670,7 +670,7 @@
     const rootMap = { "国际": document.getElementById("international"), "国内": document.getElementById("domestic") };
     const snapshotKey = "a_share_short_news_snapshot_ids";
     const snapshotTimeKey = "a_share_short_news_snapshot_time";
-    const currentSnapshotTime = "2026-07-31 09:37 CST";
+    const currentSnapshotTime = "2026-07-31 12:54 CST";
     const previousIds = new Set(JSON.parse(localStorage.getItem(snapshotKey) || "[]"));
     const hasPreviousSnapshot = previousIds.size > 0;
 
