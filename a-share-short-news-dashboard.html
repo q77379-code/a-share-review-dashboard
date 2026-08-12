@@ -322,7 +322,7 @@
   <header>
     <h1>A股短线资讯看板</h1>
     <div class="meta">
-      <span>生成时间：2026-08-12 09:37:53 CST</span>
+      <span>生成时间：2026-08-12 12:56:45 CST</span>
       <span>口径：国际 10 条 / 国内 10 条</span>
       <span>筛选：优先官方、交易所、上市公司公告、权威媒体；剔除股吧小道消息</span>
       <span>用途：短线情绪与板块映射，不构成投资建议</span>
@@ -509,6 +509,20 @@
   },
   {
     "side": "国内",
+    "level": "mid",
+    "sentiment": "未知",
+    "sector": "黑色系/建材/化工/中游制造",
+    "title": "国家统计局公布7月下旬流通领域重要生产资料市场价格变动情况",
+    "fact": "国家统计局8月4日公布7月下旬流通领域重要生产资料价格变动，黑色金属、煤炭、化工部分品种价格延续分化，反映上游与中游景气传导并不一致。",
+    "map": "利于观察钢铁、煤化工和建材等顺周期链条分化，短线更偏向具备成本转嫁能力和库存优势的龙头。",
+    "related": "钢铁、煤化工、建材、水泥、宝钢股份、华鲁恒升、海螺水泥",
+    "risk": "高频价格数据波动较快，对股票的传导更依赖需求端和库存周期，不宜机械线性外推。",
+    "source": "国家统计局",
+    "sourceTime": "2026-08-04 09:30 CST",
+    "url": "https://www.stats.gov.cn/"
+  },
+  {
+    "side": "国内",
     "level": "high",
     "sentiment": "利好",
     "sector": "半导体/EDA/IP授权",
@@ -520,20 +534,6 @@
     "source": "国家知识产权局",
     "sourceTime": "2026-08-03 00:00 CST",
     "url": "https://www.cnipa.gov.cn/art/2026/8/3/art_106_207524.html"
-  },
-  {
-    "side": "国内",
-    "level": "mid",
-    "sentiment": "中性",
-    "sector": "黑色系/建材/化工/中游制造",
-    "title": "国家统计局公布7月下旬流通领域重要生产资料市场价格变动情况",
-    "fact": "国家统计局8月4日公布7月下旬流通领域重要生产资料价格变动，黑色金属、煤炭、化工部分品种价格延续分化，反映上游与中游景气传导并不一致。",
-    "map": "利于观察钢铁、煤化工和建材等顺周期链条分化，短线更偏向具备成本转嫁能力和库存优势的龙头。",
-    "related": "钢铁、煤化工、建材、水泥、宝钢股份、华鲁恒升、海螺水泥",
-    "risk": "高频价格数据波动较快，对股票的传导更依赖需求端和库存周期，不宜机械线性外推。",
-    "source": "国家统计局",
-    "sourceTime": "2026-08-04 09:30 CST",
-    "url": "https://www.stats.gov.cn/"
   },
   {
     "side": "国际",
@@ -674,6 +674,20 @@
     "source": "European Central Bank",
     "sourceTime": "2026-08-08 16:00 CST",
     "url": "https://www.ecb.europa.eu/pub/economic-bulletin/html/index.en.html"
+  },
+  {
+    "side": "国际",
+    "level": "mid",
+    "sentiment": "利好",
+    "sector": "晶圆代工/先进封装/苹果链",
+    "title": "台积电7月营收同比继续增长",
+    "fact": "台积电8月10日公布2026年7月合并营收，维持同比增长态势，显示先进制程与高性能计算需求仍有支撑。",
+    "map": "利好A股先进封装、AI芯片配套、苹果链和高端材料设备方向，强化算力与高端制造景气映射。",
+    "related": "晶圆代工、先进封装、半导体设备、长电科技、通富微电、中微公司、北方华创",
+    "risk": "月度营收只提供景气侧验证，若后续终端出货波动或汇率变化加大，映射强度可能弱化。",
+    "source": "TSMC",
+    "sourceTime": "2026-08-10 14:00 CST",
+    "url": "https://investor.tsmc.com/english/monthly-revenue/2026"
   }
 ];
 
@@ -684,7 +698,7 @@
     const rootMap = { "国际": document.getElementById("international"), "国内": document.getElementById("domestic") };
     const snapshotKey = "a_share_short_news_snapshot_ids";
     const snapshotTimeKey = "a_share_short_news_snapshot_time";
-    const currentSnapshotTime = "2026-08-12 09:37 CST";
+    const currentSnapshotTime = "2026-08-12 12:56 CST";
     const previousIds = new Set(JSON.parse(localStorage.getItem(snapshotKey) || "[]"));
     const hasPreviousSnapshot = previousIds.size > 0;
 
