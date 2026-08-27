@@ -322,7 +322,7 @@
   <header>
     <h1>A股短线资讯看板</h1>
     <div class="meta">
-      <span>生成时间：2026-08-25 13:58:32 CST</span>
+      <span>生成时间：2026-08-27 12:50:00 CST</span>
       <span>口径：国际 10 条 / 国内 10 条</span>
       <span>筛选：优先官方、交易所、上市公司公告、权威媒体；剔除股吧小道消息</span>
       <span>用途：短线情绪与板块映射，不构成投资建议</span>
@@ -385,15 +385,15 @@
     "side": "国内",
     "level": "hot",
     "sentiment": "利好",
-    "sector": "电力设备/火电水电/核电/风光储",
-    "title": "国家能源局披露1至7月全国电力装机同比增18.1% 太阳能装机逼近13亿千瓦",
-    "fact": "国家能源局8月25日发布2026年1至7月份全国电力统计数据，截至7月底全国累计发电装机容量约41.5亿千瓦，同比增长18.1%；其中太阳能发电装机容量约12.9亿千瓦，同比增长45.5%，风电装机容量约6.1亿千瓦，同比增长24.7%。",
-    "map": "直接强化风光储、电网消纳、逆变器和运营商景气预期，短线更容易带动高装机增速方向的情绪扩散。",
-    "related": "光伏、风电、储能、电网设备、阳光电源、国电南瑞、金风科技、特变电工",
-    "risk": "装机高增不等于盈利同步改善，若消纳、电价和组件价格承压，板块交易仍会回到兑现能力分化。",
-    "source": "国家能源局",
-    "sourceTime": "2026-08-25 00:00 CST",
-    "url": "https://www.nea.gov.cn/20260825/f9f242af7e3e4df0b6f7a85ce416d17b/c.html"
+    "sector": "算力硬件/CPO/半导体/存储芯片",
+    "title": "科创综指半日涨3.17% 算力硬件与半导体全线走强",
+    "fact": "新华财经8月27日午间报道，上证指数半日涨0.60%、深证成指涨1.19%、创业板指涨1.51%、科创综指涨3.17%；两市半日成交1.35万亿元，较上一交易日放量1208亿元，PCB、CPO、光纤和半导体芯片领涨。",
+    "map": "量价共振强化AI算力、光模块、PCB和国产半导体的短线主线地位，增量成交有利于高弹性科技方向继续活跃。",
+    "related": "CPO、PCB、光纤、存储芯片、赛微电子、澜起科技、长飞光纤、金安国纪",
+    "risk": "板块早盘涨幅较大且涨停扩散较快，午后若成交不能继续放大，可能出现冲高回落和高低切换。",
+    "source": "新华财经",
+    "sourceTime": "2026-08-27 11:49 CST",
+    "url": "https://finance.sina.com.cn/jjxw/2026-08-27/doc-iniptnus0340173.shtml"
   },
   {
     "side": "国内",
@@ -525,15 +525,15 @@
     "side": "国际",
     "level": "hot",
     "sentiment": "利好",
-    "sector": "可选消费/日用百货/跨境电商/供应链制造",
-    "title": "Walmart第二财季营收增长4.2% 并上调全年销售与利润指引",
-    "fact": "Walmart 8月20日披露第二财季业绩，营收同比增长4.2%至1720亿美元，全球电商销售增长16%，并上调全年净销售额和调整后营业利润增长指引。",
-    "map": "对A股跨境电商、家居日用、消费电子和北美零售供应链偏正面，反映美国大众消费与线上渠道需求仍具韧性。",
-    "related": "跨境电商、家居日用、消费电子、供应链制造、安克创新、致欧科技、立讯精密、海尔智家",
-    "risk": "龙头业绩韧性不代表终端全面扩散，若后续美国消费分层加剧，受益可能继续集中于头部渠道与高性价比品类。",
-    "source": "Walmart",
-    "sourceTime": "2026-08-20 00:00 CST",
-    "url": "https://corporate.walmart.com/news/2026/08/20/walmart-releases-q2-fy27-earnings"
+    "sector": "美国经济/出口链/黄金/成长股",
+    "title": "美国二季度GDP二次估值年化增长1.5% 核心PCE上修至3.6%",
+    "fact": "美国经济分析局8月26日公布，二季度实际GDP按年率增长1.5%，与初值一致；私人国内最终销售增长上修至4.2%，核心PCE价格指数增长上修至3.6%，当季企业利润增加4009亿美元。",
+    "map": "增长韧性支持A股出口制造需求映射，但通胀上修可能推迟宽松预期，对黄金与高估值成长股形成双向扰动。",
+    "related": "出口链、工业金属、黄金、半导体、纳指、三一重工、洛阳钼业",
+    "risk": "GDP与通胀组合偏复杂，若美债收益率因核心通胀上修而走高，成长股估值可能承压。",
+    "source": "U.S. Bureau of Economic Analysis",
+    "sourceTime": "2026-08-26 20:30 CST",
+    "url": "https://www.bea.gov/news/2026/gdp-second-estimate-and-corporate-profits-2nd-quarter-2026"
   },
   {
     "side": "国际",
@@ -670,7 +670,7 @@
     const rootMap = { "国际": document.getElementById("international"), "国内": document.getElementById("domestic") };
     const snapshotKey = "a_share_short_news_snapshot_ids";
     const snapshotTimeKey = "a_share_short_news_snapshot_time";
-    const currentSnapshotTime = "2026-08-25 13:58 CST";
+    const currentSnapshotTime = "2026-08-27 12:50 CST";
     const previousIds = new Set(JSON.parse(localStorage.getItem(snapshotKey) || "[]"));
     const hasPreviousSnapshot = previousIds.size > 0;
 
